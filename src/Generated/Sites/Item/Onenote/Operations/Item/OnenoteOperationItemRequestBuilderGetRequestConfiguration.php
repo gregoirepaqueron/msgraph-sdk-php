@@ -24,4 +24,16 @@ class OnenoteOperationItemRequestBuilderGetRequestConfiguration
     */
     public ?OnenoteOperationItemRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new OnenoteOperationItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param OnenoteOperationItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?OnenoteOperationItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

@@ -24,4 +24,16 @@ class SubscriptionsRequestBuilderGetRequestConfiguration
     */
     public ?SubscriptionsRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new subscriptionsRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param SubscriptionsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?SubscriptionsRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

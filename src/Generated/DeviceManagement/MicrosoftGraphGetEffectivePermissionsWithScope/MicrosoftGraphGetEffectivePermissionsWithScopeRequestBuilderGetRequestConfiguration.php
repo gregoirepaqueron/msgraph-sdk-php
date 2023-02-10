@@ -24,4 +24,16 @@ class MicrosoftGraphGetEffectivePermissionsWithScopeRequestBuilderGetRequestConf
     */
     public ?MicrosoftGraphGetEffectivePermissionsWithScopeRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new microsoftGraphGetEffectivePermissionsWithScopeRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param MicrosoftGraphGetEffectivePermissionsWithScopeRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?MicrosoftGraphGetEffectivePermissionsWithScopeRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

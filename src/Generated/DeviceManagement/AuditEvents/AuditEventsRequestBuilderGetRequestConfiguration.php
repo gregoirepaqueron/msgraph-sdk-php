@@ -24,4 +24,16 @@ class AuditEventsRequestBuilderGetRequestConfiguration
     */
     public ?AuditEventsRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new auditEventsRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param AuditEventsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?AuditEventsRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

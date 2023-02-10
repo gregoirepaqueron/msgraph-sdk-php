@@ -24,4 +24,16 @@ class RefRequestBuilderGetRequestConfiguration
     */
     public ?RefRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new RefRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param RefRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?RefRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

@@ -24,4 +24,16 @@ class TeachersRequestBuilderGetRequestConfiguration
     */
     public ?TeachersRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new teachersRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param TeachersRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?TeachersRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

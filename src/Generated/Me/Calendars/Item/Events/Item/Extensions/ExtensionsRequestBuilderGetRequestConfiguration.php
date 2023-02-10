@@ -24,4 +24,16 @@ class ExtensionsRequestBuilderGetRequestConfiguration
     */
     public ?ExtensionsRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new extensionsRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param ExtensionsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?ExtensionsRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

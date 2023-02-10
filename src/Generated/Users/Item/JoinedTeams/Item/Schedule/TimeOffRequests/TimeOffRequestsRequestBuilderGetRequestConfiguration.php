@@ -24,4 +24,16 @@ class TimeOffRequestsRequestBuilderGetRequestConfiguration
     */
     public ?TimeOffRequestsRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new timeOffRequestsRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param TimeOffRequestsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?TimeOffRequestsRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

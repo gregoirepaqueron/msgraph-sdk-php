@@ -24,4 +24,16 @@ class MajorGridlinesRequestBuilderGetRequestConfiguration
     */
     public ?MajorGridlinesRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new majorGridlinesRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param MajorGridlinesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?MajorGridlinesRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

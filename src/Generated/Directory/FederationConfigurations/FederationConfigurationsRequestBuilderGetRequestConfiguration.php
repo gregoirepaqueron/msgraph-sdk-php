@@ -24,4 +24,16 @@ class FederationConfigurationsRequestBuilderGetRequestConfiguration
     */
     public ?FederationConfigurationsRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new federationConfigurationsRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param FederationConfigurationsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?FederationConfigurationsRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

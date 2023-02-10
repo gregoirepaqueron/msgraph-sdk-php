@@ -24,4 +24,16 @@ class AllChannelsRequestBuilderGetRequestConfiguration
     */
     public ?AllChannelsRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new allChannelsRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param AllChannelsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?AllChannelsRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

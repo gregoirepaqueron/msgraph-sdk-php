@@ -24,4 +24,16 @@ class ManagedDeviceOverviewRequestBuilderGetRequestConfiguration
     */
     public ?ManagedDeviceOverviewRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new managedDeviceOverviewRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param ManagedDeviceOverviewRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?ManagedDeviceOverviewRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

@@ -24,4 +24,16 @@ class CertificateBasedAuthConfigurationRequestBuilderGetRequestConfiguration
     */
     public ?CertificateBasedAuthConfigurationRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new certificateBasedAuthConfigurationRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param CertificateBasedAuthConfigurationRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?CertificateBasedAuthConfigurationRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

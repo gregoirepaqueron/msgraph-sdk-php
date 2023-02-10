@@ -24,4 +24,16 @@ class AuthenticationRequestBuilderGetRequestConfiguration
     */
     public ?AuthenticationRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new authenticationRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param AuthenticationRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?AuthenticationRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

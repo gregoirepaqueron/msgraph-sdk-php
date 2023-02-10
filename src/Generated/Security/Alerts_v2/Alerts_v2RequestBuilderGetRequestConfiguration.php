@@ -24,4 +24,16 @@ class Alerts_v2RequestBuilderGetRequestConfiguration
     */
     public ?Alerts_v2RequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new alerts_v2RequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param Alerts_v2RequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?Alerts_v2RequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

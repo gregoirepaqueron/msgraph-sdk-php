@@ -24,4 +24,16 @@ class IosUpdateDeviceStatusItemRequestBuilderGetRequestConfiguration
     */
     public ?IosUpdateDeviceStatusItemRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new IosUpdateDeviceStatusItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param IosUpdateDeviceStatusItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?IosUpdateDeviceStatusItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

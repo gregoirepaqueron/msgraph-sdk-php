@@ -24,4 +24,16 @@ class UserInstallStateSummaryItemRequestBuilderGetRequestConfiguration
     */
     public ?UserInstallStateSummaryItemRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new UserInstallStateSummaryItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param UserInstallStateSummaryItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?UserInstallStateSummaryItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

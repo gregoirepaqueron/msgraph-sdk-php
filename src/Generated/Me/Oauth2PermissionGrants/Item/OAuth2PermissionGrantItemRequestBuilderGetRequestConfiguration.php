@@ -24,4 +24,16 @@ class OAuth2PermissionGrantItemRequestBuilderGetRequestConfiguration
     */
     public ?OAuth2PermissionGrantItemRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new OAuth2PermissionGrantItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param OAuth2PermissionGrantItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?OAuth2PermissionGrantItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

@@ -24,4 +24,16 @@ class HistoryRequestBuilderGetRequestConfiguration
     */
     public ?HistoryRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new historyRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param HistoryRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?HistoryRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

@@ -24,4 +24,16 @@ class BookingCurrencyItemRequestBuilderGetRequestConfiguration
     */
     public ?BookingCurrencyItemRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new BookingCurrencyItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param BookingCurrencyItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?BookingCurrencyItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

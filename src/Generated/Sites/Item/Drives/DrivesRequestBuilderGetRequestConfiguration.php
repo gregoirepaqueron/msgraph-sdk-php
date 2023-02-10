@@ -24,4 +24,16 @@ class DrivesRequestBuilderGetRequestConfiguration
     */
     public ?DrivesRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new drivesRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param DrivesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?DrivesRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

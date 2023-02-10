@@ -24,4 +24,16 @@ class ParentRequestBuilderGetRequestConfiguration
     */
     public ?ParentRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new parentRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param ParentRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?ParentRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

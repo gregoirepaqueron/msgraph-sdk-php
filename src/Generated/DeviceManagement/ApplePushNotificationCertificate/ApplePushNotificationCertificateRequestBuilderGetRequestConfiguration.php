@@ -24,4 +24,16 @@ class ApplePushNotificationCertificateRequestBuilderGetRequestConfiguration
     */
     public ?ApplePushNotificationCertificateRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new applePushNotificationCertificateRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param ApplePushNotificationCertificateRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?ApplePushNotificationCertificateRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

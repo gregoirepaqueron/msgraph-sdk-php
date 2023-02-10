@@ -24,4 +24,16 @@ class ConditionalAccessPoliciesRequestBuilderGetRequestConfiguration
     */
     public ?ConditionalAccessPoliciesRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new conditionalAccessPoliciesRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param ConditionalAccessPoliciesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?ConditionalAccessPoliciesRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }
