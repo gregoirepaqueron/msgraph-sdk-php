@@ -24,4 +24,16 @@ class ConditionalAccessSettingsRequestBuilderGetRequestConfiguration
     */
     public ?ConditionalAccessSettingsRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new conditionalAccessSettingsRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param ConditionalAccessSettingsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?ConditionalAccessSettingsRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

@@ -24,4 +24,16 @@ class ProvisioningRequestBuilderGetRequestConfiguration
     */
     public ?ProvisioningRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new provisioningRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param ProvisioningRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?ProvisioningRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

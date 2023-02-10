@@ -24,4 +24,16 @@ class RoleDefinitionRequestBuilderGetRequestConfiguration
     */
     public ?RoleDefinitionRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new roleDefinitionRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param RoleDefinitionRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?RoleDefinitionRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

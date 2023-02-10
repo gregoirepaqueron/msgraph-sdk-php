@@ -24,4 +24,16 @@ class TargetedManagedAppPolicyAssignmentItemRequestBuilderGetRequestConfiguratio
     */
     public ?TargetedManagedAppPolicyAssignmentItemRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new TargetedManagedAppPolicyAssignmentItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param TargetedManagedAppPolicyAssignmentItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?TargetedManagedAppPolicyAssignmentItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

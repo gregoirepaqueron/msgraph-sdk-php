@@ -24,4 +24,16 @@ class VppTokenItemRequestBuilderGetRequestConfiguration
     */
     public ?VppTokenItemRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new VppTokenItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param VppTokenItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?VppTokenItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

@@ -24,4 +24,16 @@ class MicrosoftGraphDeltaWithTokenRequestBuilderGetRequestConfiguration
     */
     public ?MicrosoftGraphDeltaWithTokenRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new microsoftGraphDeltaWithTokenRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param MicrosoftGraphDeltaWithTokenRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?MicrosoftGraphDeltaWithTokenRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

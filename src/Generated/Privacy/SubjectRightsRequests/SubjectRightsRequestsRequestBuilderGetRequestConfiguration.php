@@ -24,4 +24,16 @@ class SubjectRightsRequestsRequestBuilderGetRequestConfiguration
     */
     public ?SubjectRightsRequestsRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new subjectRightsRequestsRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param SubjectRightsRequestsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?SubjectRightsRequestsRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

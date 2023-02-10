@@ -24,4 +24,16 @@ class CreatedOnBehalfOfRequestBuilderGetRequestConfiguration
     */
     public ?CreatedOnBehalfOfRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new createdOnBehalfOfRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param CreatedOnBehalfOfRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?CreatedOnBehalfOfRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

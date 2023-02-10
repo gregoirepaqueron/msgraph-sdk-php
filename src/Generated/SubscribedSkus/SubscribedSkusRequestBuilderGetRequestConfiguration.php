@@ -24,4 +24,16 @@ class SubscribedSkusRequestBuilderGetRequestConfiguration
     */
     public ?SubscribedSkusRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new subscribedSkusRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param SubscribedSkusRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?SubscribedSkusRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

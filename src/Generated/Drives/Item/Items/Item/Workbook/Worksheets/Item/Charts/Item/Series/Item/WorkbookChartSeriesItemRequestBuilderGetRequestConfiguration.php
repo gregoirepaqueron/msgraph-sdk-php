@@ -24,4 +24,16 @@ class WorkbookChartSeriesItemRequestBuilderGetRequestConfiguration
     */
     public ?WorkbookChartSeriesItemRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new WorkbookChartSeriesItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param WorkbookChartSeriesItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?WorkbookChartSeriesItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

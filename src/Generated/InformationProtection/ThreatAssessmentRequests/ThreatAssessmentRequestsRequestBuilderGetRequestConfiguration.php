@@ -24,4 +24,16 @@ class ThreatAssessmentRequestsRequestBuilderGetRequestConfiguration
     */
     public ?ThreatAssessmentRequestsRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new threatAssessmentRequestsRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param ThreatAssessmentRequestsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?ThreatAssessmentRequestsRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

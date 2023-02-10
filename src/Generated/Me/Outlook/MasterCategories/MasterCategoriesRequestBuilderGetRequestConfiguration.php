@@ -24,4 +24,16 @@ class MasterCategoriesRequestBuilderGetRequestConfiguration
     */
     public ?MasterCategoriesRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new masterCategoriesRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param MasterCategoriesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?MasterCategoriesRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

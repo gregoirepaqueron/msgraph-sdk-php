@@ -24,4 +24,16 @@ class WorkbookChartPointItemRequestBuilderGetRequestConfiguration
     */
     public ?WorkbookChartPointItemRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new WorkbookChartPointItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param WorkbookChartPointItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?WorkbookChartPointItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

@@ -24,4 +24,16 @@ class B2xIdentityUserFlowItemRequestBuilderGetRequestConfiguration
     */
     public ?B2xIdentityUserFlowItemRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new B2xIdentityUserFlowItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param B2xIdentityUserFlowItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?B2xIdentityUserFlowItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

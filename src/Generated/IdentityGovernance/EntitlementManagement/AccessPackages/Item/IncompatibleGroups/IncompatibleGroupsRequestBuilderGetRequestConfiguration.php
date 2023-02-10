@@ -24,4 +24,16 @@ class IncompatibleGroupsRequestBuilderGetRequestConfiguration
     */
     public ?IncompatibleGroupsRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new incompatibleGroupsRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param IncompatibleGroupsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?IncompatibleGroupsRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

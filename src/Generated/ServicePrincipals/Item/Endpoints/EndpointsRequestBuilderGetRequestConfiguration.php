@@ -24,4 +24,16 @@ class EndpointsRequestBuilderGetRequestConfiguration
     */
     public ?EndpointsRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new endpointsRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param EndpointsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?EndpointsRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

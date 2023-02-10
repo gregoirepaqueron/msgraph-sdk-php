@@ -24,4 +24,16 @@ class UserStatusSummaryRequestBuilderGetRequestConfiguration
     */
     public ?UserStatusSummaryRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new userStatusSummaryRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param UserStatusSummaryRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?UserStatusSummaryRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

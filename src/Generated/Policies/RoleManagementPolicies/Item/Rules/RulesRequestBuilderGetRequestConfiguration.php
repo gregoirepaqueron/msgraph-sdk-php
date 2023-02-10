@@ -24,4 +24,16 @@ class RulesRequestBuilderGetRequestConfiguration
     */
     public ?RulesRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new rulesRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param RulesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?RulesRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

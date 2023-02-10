@@ -24,4 +24,16 @@ class UnifiedRoleEligibilityScheduleInstanceItemRequestBuilderGetRequestConfigur
     */
     public ?UnifiedRoleEligibilityScheduleInstanceItemRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new UnifiedRoleEligibilityScheduleInstanceItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param UnifiedRoleEligibilityScheduleInstanceItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?UnifiedRoleEligibilityScheduleInstanceItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

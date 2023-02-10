@@ -24,4 +24,16 @@ class PartnersRequestBuilderGetRequestConfiguration
     */
     public ?PartnersRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new partnersRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param PartnersRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?PartnersRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

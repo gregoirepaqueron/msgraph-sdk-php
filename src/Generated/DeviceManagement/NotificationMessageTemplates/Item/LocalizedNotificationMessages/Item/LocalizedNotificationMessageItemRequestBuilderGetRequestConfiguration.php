@@ -24,4 +24,16 @@ class LocalizedNotificationMessageItemRequestBuilderGetRequestConfiguration
     */
     public ?LocalizedNotificationMessageItemRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new LocalizedNotificationMessageItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param LocalizedNotificationMessageItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?LocalizedNotificationMessageItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

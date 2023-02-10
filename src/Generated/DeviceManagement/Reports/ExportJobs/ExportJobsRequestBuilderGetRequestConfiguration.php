@@ -24,4 +24,16 @@ class ExportJobsRequestBuilderGetRequestConfiguration
     */
     public ?ExportJobsRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new exportJobsRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param ExportJobsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?ExportJobsRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

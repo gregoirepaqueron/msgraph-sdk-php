@@ -24,4 +24,16 @@ class CalendarGroupItemRequestBuilderGetRequestConfiguration
     */
     public ?CalendarGroupItemRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new CalendarGroupItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param CalendarGroupItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?CalendarGroupItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

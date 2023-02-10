@@ -24,4 +24,16 @@ class ShiftsRequestBuilderGetRequestConfiguration
     */
     public ?ShiftsRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new shiftsRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param ShiftsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?ShiftsRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

@@ -24,4 +24,16 @@ class PrintConnectorItemRequestBuilderGetRequestConfiguration
     */
     public ?PrintConnectorItemRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new PrintConnectorItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param PrintConnectorItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?PrintConnectorItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

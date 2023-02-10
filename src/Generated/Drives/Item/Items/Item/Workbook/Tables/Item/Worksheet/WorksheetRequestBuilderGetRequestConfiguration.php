@@ -24,4 +24,16 @@ class WorksheetRequestBuilderGetRequestConfiguration
     */
     public ?WorksheetRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new worksheetRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param WorksheetRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?WorksheetRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

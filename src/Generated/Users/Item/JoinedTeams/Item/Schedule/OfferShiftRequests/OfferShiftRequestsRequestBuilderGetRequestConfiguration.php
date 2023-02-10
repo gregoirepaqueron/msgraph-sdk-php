@@ -24,4 +24,16 @@ class OfferShiftRequestsRequestBuilderGetRequestConfiguration
     */
     public ?OfferShiftRequestsRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new offerShiftRequestsRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param OfferShiftRequestsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?OfferShiftRequestsRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

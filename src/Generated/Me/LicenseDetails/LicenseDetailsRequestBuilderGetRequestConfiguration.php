@@ -24,4 +24,16 @@ class LicenseDetailsRequestBuilderGetRequestConfiguration
     */
     public ?LicenseDetailsRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new licenseDetailsRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param LicenseDetailsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?LicenseDetailsRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

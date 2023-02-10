@@ -24,4 +24,16 @@ class TeamworkRequestBuilderGetRequestConfiguration
     */
     public ?TeamworkRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new teamworkRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param TeamworkRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?TeamworkRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

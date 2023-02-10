@@ -24,4 +24,16 @@ class PasswordMethodsRequestBuilderGetRequestConfiguration
     */
     public ?PasswordMethodsRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new passwordMethodsRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param PasswordMethodsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?PasswordMethodsRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

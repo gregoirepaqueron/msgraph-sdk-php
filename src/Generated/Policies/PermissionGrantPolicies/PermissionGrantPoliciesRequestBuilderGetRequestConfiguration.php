@@ -24,4 +24,16 @@ class PermissionGrantPoliciesRequestBuilderGetRequestConfiguration
     */
     public ?PermissionGrantPoliciesRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new permissionGrantPoliciesRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param PermissionGrantPoliciesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?PermissionGrantPoliciesRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

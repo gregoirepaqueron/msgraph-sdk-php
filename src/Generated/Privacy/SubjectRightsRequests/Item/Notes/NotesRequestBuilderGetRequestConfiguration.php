@@ -24,4 +24,16 @@ class NotesRequestBuilderGetRequestConfiguration
     */
     public ?NotesRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new notesRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param NotesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?NotesRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

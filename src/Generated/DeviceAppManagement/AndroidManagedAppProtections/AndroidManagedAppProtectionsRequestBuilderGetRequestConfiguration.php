@@ -24,4 +24,16 @@ class AndroidManagedAppProtectionsRequestBuilderGetRequestConfiguration
     */
     public ?AndroidManagedAppProtectionsRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new androidManagedAppProtectionsRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param AndroidManagedAppProtectionsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?AndroidManagedAppProtectionsRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

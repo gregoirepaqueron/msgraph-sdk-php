@@ -24,4 +24,16 @@ class AttendanceReportsRequestBuilderGetRequestConfiguration
     */
     public ?AttendanceReportsRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new attendanceReportsRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param AttendanceReportsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?AttendanceReportsRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }
