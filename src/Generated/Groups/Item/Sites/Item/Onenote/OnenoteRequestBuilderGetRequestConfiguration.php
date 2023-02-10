@@ -20,8 +20,30 @@ class OnenoteRequestBuilderGetRequestConfiguration
     public ?array $options = null;
     
     /**
-     * @var OnenoteRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+     * @var OnenoteRequestBuilderGetQueryParameters $queryParameters Request query parameters
     */
-    public ?OnenoteRequestBuilderGetQueryParameters $queryParameters = null;
+    public OnenoteRequestBuilderGetQueryParameters $queryParameters;
     
+    /**
+     * Instantiates a new onenoteRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return OnenoteRequestBuilderGetQueryParameters
+    */
+    public static function addQueryParameters(?array $expand = null, ?array $select = null): OnenoteRequestBuilderGetQueryParameters {
+        return new OnenoteRequestBuilderGetQueryParameters($expand, $select);
+    }
+
+    /**
+     * Instantiates a new onenoteRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param OnenoteRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?OnenoteRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

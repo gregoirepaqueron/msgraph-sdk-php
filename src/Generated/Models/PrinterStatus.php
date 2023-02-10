@@ -38,7 +38,7 @@ class PrinterStatus implements AdditionalDataHolder, BackedModel, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): ?array {
+    public function getAdditionalData(): array {
         return $this->getBackingStore()->get('additionalData');
     }
 

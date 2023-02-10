@@ -20,8 +20,30 @@ class ValueAxisRequestBuilderGetRequestConfiguration
     public ?array $options = null;
     
     /**
-     * @var ValueAxisRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+     * @var ValueAxisRequestBuilderGetQueryParameters $queryParameters Request query parameters
     */
-    public ?ValueAxisRequestBuilderGetQueryParameters $queryParameters = null;
+    public ValueAxisRequestBuilderGetQueryParameters $queryParameters;
     
+    /**
+     * Instantiates a new valueAxisRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return ValueAxisRequestBuilderGetQueryParameters
+    */
+    public static function addQueryParameters(?array $expand = null, ?array $select = null): ValueAxisRequestBuilderGetQueryParameters {
+        return new ValueAxisRequestBuilderGetQueryParameters($expand, $select);
+    }
+
+    /**
+     * Instantiates a new valueAxisRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param ValueAxisRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?ValueAxisRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

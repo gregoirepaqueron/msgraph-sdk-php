@@ -20,8 +20,30 @@ class DeviceAndAppManagementRoleAssignmentItemRequestBuilderGetRequestConfigurat
     public ?array $options = null;
     
     /**
-     * @var DeviceAndAppManagementRoleAssignmentItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+     * @var DeviceAndAppManagementRoleAssignmentItemRequestBuilderGetQueryParameters $queryParameters Request query parameters
     */
-    public ?DeviceAndAppManagementRoleAssignmentItemRequestBuilderGetQueryParameters $queryParameters = null;
+    public DeviceAndAppManagementRoleAssignmentItemRequestBuilderGetQueryParameters $queryParameters;
     
+    /**
+     * Instantiates a new DeviceAndAppManagementRoleAssignmentItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return DeviceAndAppManagementRoleAssignmentItemRequestBuilderGetQueryParameters
+    */
+    public static function addQueryParameters(?array $expand = null, ?array $select = null): DeviceAndAppManagementRoleAssignmentItemRequestBuilderGetQueryParameters {
+        return new DeviceAndAppManagementRoleAssignmentItemRequestBuilderGetQueryParameters($expand, $select);
+    }
+
+    /**
+     * Instantiates a new DeviceAndAppManagementRoleAssignmentItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param DeviceAndAppManagementRoleAssignmentItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?DeviceAndAppManagementRoleAssignmentItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

@@ -20,8 +20,30 @@ class DeviceConfigurationUserStatusItemRequestBuilderGetRequestConfiguration
     public ?array $options = null;
     
     /**
-     * @var DeviceConfigurationUserStatusItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+     * @var DeviceConfigurationUserStatusItemRequestBuilderGetQueryParameters $queryParameters Request query parameters
     */
-    public ?DeviceConfigurationUserStatusItemRequestBuilderGetQueryParameters $queryParameters = null;
+    public DeviceConfigurationUserStatusItemRequestBuilderGetQueryParameters $queryParameters;
     
+    /**
+     * Instantiates a new DeviceConfigurationUserStatusItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return DeviceConfigurationUserStatusItemRequestBuilderGetQueryParameters
+    */
+    public static function addQueryParameters(?array $expand = null, ?array $select = null): DeviceConfigurationUserStatusItemRequestBuilderGetQueryParameters {
+        return new DeviceConfigurationUserStatusItemRequestBuilderGetQueryParameters($expand, $select);
+    }
+
+    /**
+     * Instantiates a new DeviceConfigurationUserStatusItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param DeviceConfigurationUserStatusItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?DeviceConfigurationUserStatusItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

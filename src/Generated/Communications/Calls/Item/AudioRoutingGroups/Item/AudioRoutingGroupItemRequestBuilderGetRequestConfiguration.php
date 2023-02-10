@@ -20,8 +20,30 @@ class AudioRoutingGroupItemRequestBuilderGetRequestConfiguration
     public ?array $options = null;
     
     /**
-     * @var AudioRoutingGroupItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+     * @var AudioRoutingGroupItemRequestBuilderGetQueryParameters $queryParameters Request query parameters
     */
-    public ?AudioRoutingGroupItemRequestBuilderGetQueryParameters $queryParameters = null;
+    public AudioRoutingGroupItemRequestBuilderGetQueryParameters $queryParameters;
     
+    /**
+     * Instantiates a new AudioRoutingGroupItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return AudioRoutingGroupItemRequestBuilderGetQueryParameters
+    */
+    public static function addQueryParameters(?array $expand = null, ?array $select = null): AudioRoutingGroupItemRequestBuilderGetQueryParameters {
+        return new AudioRoutingGroupItemRequestBuilderGetQueryParameters($expand, $select);
+    }
+
+    /**
+     * Instantiates a new AudioRoutingGroupItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param AudioRoutingGroupItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?AudioRoutingGroupItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

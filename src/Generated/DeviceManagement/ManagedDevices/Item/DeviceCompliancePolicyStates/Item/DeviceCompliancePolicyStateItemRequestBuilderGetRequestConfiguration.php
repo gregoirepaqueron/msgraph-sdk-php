@@ -20,8 +20,30 @@ class DeviceCompliancePolicyStateItemRequestBuilderGetRequestConfiguration
     public ?array $options = null;
     
     /**
-     * @var DeviceCompliancePolicyStateItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+     * @var DeviceCompliancePolicyStateItemRequestBuilderGetQueryParameters $queryParameters Request query parameters
     */
-    public ?DeviceCompliancePolicyStateItemRequestBuilderGetQueryParameters $queryParameters = null;
+    public DeviceCompliancePolicyStateItemRequestBuilderGetQueryParameters $queryParameters;
     
+    /**
+     * Instantiates a new DeviceCompliancePolicyStateItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return DeviceCompliancePolicyStateItemRequestBuilderGetQueryParameters
+    */
+    public static function addQueryParameters(?array $expand = null, ?array $select = null): DeviceCompliancePolicyStateItemRequestBuilderGetQueryParameters {
+        return new DeviceCompliancePolicyStateItemRequestBuilderGetQueryParameters($expand, $select);
+    }
+
+    /**
+     * Instantiates a new DeviceCompliancePolicyStateItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param DeviceCompliancePolicyStateItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?DeviceCompliancePolicyStateItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

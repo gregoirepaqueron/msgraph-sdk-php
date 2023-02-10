@@ -20,8 +20,30 @@ class AdminRequestBuilderGetRequestConfiguration
     public ?array $options = null;
     
     /**
-     * @var AdminRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+     * @var AdminRequestBuilderGetQueryParameters $queryParameters Request query parameters
     */
-    public ?AdminRequestBuilderGetQueryParameters $queryParameters = null;
+    public AdminRequestBuilderGetQueryParameters $queryParameters;
     
+    /**
+     * Instantiates a new adminRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return AdminRequestBuilderGetQueryParameters
+    */
+    public static function addQueryParameters(?array $expand = null, ?array $select = null): AdminRequestBuilderGetQueryParameters {
+        return new AdminRequestBuilderGetQueryParameters($expand, $select);
+    }
+
+    /**
+     * Instantiates a new adminRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param AdminRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?AdminRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

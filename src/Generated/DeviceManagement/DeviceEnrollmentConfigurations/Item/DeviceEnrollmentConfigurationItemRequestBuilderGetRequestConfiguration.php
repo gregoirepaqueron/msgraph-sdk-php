@@ -20,8 +20,30 @@ class DeviceEnrollmentConfigurationItemRequestBuilderGetRequestConfiguration
     public ?array $options = null;
     
     /**
-     * @var DeviceEnrollmentConfigurationItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+     * @var DeviceEnrollmentConfigurationItemRequestBuilderGetQueryParameters $queryParameters Request query parameters
     */
-    public ?DeviceEnrollmentConfigurationItemRequestBuilderGetQueryParameters $queryParameters = null;
+    public DeviceEnrollmentConfigurationItemRequestBuilderGetQueryParameters $queryParameters;
     
+    /**
+     * Instantiates a new DeviceEnrollmentConfigurationItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return DeviceEnrollmentConfigurationItemRequestBuilderGetQueryParameters
+    */
+    public static function addQueryParameters(?array $expand = null, ?array $select = null): DeviceEnrollmentConfigurationItemRequestBuilderGetQueryParameters {
+        return new DeviceEnrollmentConfigurationItemRequestBuilderGetQueryParameters($expand, $select);
+    }
+
+    /**
+     * Instantiates a new DeviceEnrollmentConfigurationItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param DeviceEnrollmentConfigurationItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?DeviceEnrollmentConfigurationItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

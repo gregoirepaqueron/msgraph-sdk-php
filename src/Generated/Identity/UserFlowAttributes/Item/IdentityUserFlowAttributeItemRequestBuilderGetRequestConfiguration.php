@@ -20,8 +20,30 @@ class IdentityUserFlowAttributeItemRequestBuilderGetRequestConfiguration
     public ?array $options = null;
     
     /**
-     * @var IdentityUserFlowAttributeItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+     * @var IdentityUserFlowAttributeItemRequestBuilderGetQueryParameters $queryParameters Request query parameters
     */
-    public ?IdentityUserFlowAttributeItemRequestBuilderGetQueryParameters $queryParameters = null;
+    public IdentityUserFlowAttributeItemRequestBuilderGetQueryParameters $queryParameters;
     
+    /**
+     * Instantiates a new IdentityUserFlowAttributeItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return IdentityUserFlowAttributeItemRequestBuilderGetQueryParameters
+    */
+    public static function addQueryParameters(?array $expand = null, ?array $select = null): IdentityUserFlowAttributeItemRequestBuilderGetQueryParameters {
+        return new IdentityUserFlowAttributeItemRequestBuilderGetQueryParameters($expand, $select);
+    }
+
+    /**
+     * Instantiates a new IdentityUserFlowAttributeItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param IdentityUserFlowAttributeItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?IdentityUserFlowAttributeItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

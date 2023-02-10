@@ -20,8 +20,30 @@ class DomainItemRequestBuilderGetRequestConfiguration
     public ?array $options = null;
     
     /**
-     * @var DomainItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+     * @var DomainItemRequestBuilderGetQueryParameters $queryParameters Request query parameters
     */
-    public ?DomainItemRequestBuilderGetQueryParameters $queryParameters = null;
+    public DomainItemRequestBuilderGetQueryParameters $queryParameters;
     
+    /**
+     * Instantiates a new DomainItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return DomainItemRequestBuilderGetQueryParameters
+    */
+    public static function addQueryParameters(?array $expand = null, ?array $select = null): DomainItemRequestBuilderGetQueryParameters {
+        return new DomainItemRequestBuilderGetQueryParameters($expand, $select);
+    }
+
+    /**
+     * Instantiates a new DomainItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param DomainItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?DomainItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

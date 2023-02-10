@@ -20,8 +20,30 @@ class DocumentSetVersionItemRequestBuilderGetRequestConfiguration
     public ?array $options = null;
     
     /**
-     * @var DocumentSetVersionItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+     * @var DocumentSetVersionItemRequestBuilderGetQueryParameters $queryParameters Request query parameters
     */
-    public ?DocumentSetVersionItemRequestBuilderGetQueryParameters $queryParameters = null;
+    public DocumentSetVersionItemRequestBuilderGetQueryParameters $queryParameters;
     
+    /**
+     * Instantiates a new DocumentSetVersionItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return DocumentSetVersionItemRequestBuilderGetQueryParameters
+    */
+    public static function addQueryParameters(?array $expand = null, ?array $select = null): DocumentSetVersionItemRequestBuilderGetQueryParameters {
+        return new DocumentSetVersionItemRequestBuilderGetQueryParameters($expand, $select);
+    }
+
+    /**
+     * Instantiates a new DocumentSetVersionItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param DocumentSetVersionItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?DocumentSetVersionItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

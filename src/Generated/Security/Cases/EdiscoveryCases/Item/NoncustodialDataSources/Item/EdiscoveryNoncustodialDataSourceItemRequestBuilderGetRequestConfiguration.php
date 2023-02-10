@@ -20,8 +20,30 @@ class EdiscoveryNoncustodialDataSourceItemRequestBuilderGetRequestConfiguration
     public ?array $options = null;
     
     /**
-     * @var EdiscoveryNoncustodialDataSourceItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+     * @var EdiscoveryNoncustodialDataSourceItemRequestBuilderGetQueryParameters $queryParameters Request query parameters
     */
-    public ?EdiscoveryNoncustodialDataSourceItemRequestBuilderGetQueryParameters $queryParameters = null;
+    public EdiscoveryNoncustodialDataSourceItemRequestBuilderGetQueryParameters $queryParameters;
     
+    /**
+     * Instantiates a new EdiscoveryNoncustodialDataSourceItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return EdiscoveryNoncustodialDataSourceItemRequestBuilderGetQueryParameters
+    */
+    public static function addQueryParameters(?array $expand = null, ?array $select = null): EdiscoveryNoncustodialDataSourceItemRequestBuilderGetQueryParameters {
+        return new EdiscoveryNoncustodialDataSourceItemRequestBuilderGetQueryParameters($expand, $select);
+    }
+
+    /**
+     * Instantiates a new EdiscoveryNoncustodialDataSourceItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param EdiscoveryNoncustodialDataSourceItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?EdiscoveryNoncustodialDataSourceItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

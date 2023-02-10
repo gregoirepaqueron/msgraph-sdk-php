@@ -20,8 +20,30 @@ class AppScopeRequestBuilderGetRequestConfiguration
     public ?array $options = null;
     
     /**
-     * @var AppScopeRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+     * @var AppScopeRequestBuilderGetQueryParameters $queryParameters Request query parameters
     */
-    public ?AppScopeRequestBuilderGetQueryParameters $queryParameters = null;
+    public AppScopeRequestBuilderGetQueryParameters $queryParameters;
     
+    /**
+     * Instantiates a new appScopeRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return AppScopeRequestBuilderGetQueryParameters
+    */
+    public static function addQueryParameters(?array $expand = null, ?array $select = null): AppScopeRequestBuilderGetQueryParameters {
+        return new AppScopeRequestBuilderGetQueryParameters($expand, $select);
+    }
+
+    /**
+     * Instantiates a new appScopeRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param AppScopeRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?AppScopeRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

@@ -20,8 +20,30 @@ class PasswordAuthenticationMethodItemRequestBuilderGetRequestConfiguration
     public ?array $options = null;
     
     /**
-     * @var PasswordAuthenticationMethodItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+     * @var PasswordAuthenticationMethodItemRequestBuilderGetQueryParameters $queryParameters Request query parameters
     */
-    public ?PasswordAuthenticationMethodItemRequestBuilderGetQueryParameters $queryParameters = null;
+    public PasswordAuthenticationMethodItemRequestBuilderGetQueryParameters $queryParameters;
     
+    /**
+     * Instantiates a new PasswordAuthenticationMethodItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return PasswordAuthenticationMethodItemRequestBuilderGetQueryParameters
+    */
+    public static function addQueryParameters(?array $expand = null, ?array $select = null): PasswordAuthenticationMethodItemRequestBuilderGetQueryParameters {
+        return new PasswordAuthenticationMethodItemRequestBuilderGetQueryParameters($expand, $select);
+    }
+
+    /**
+     * Instantiates a new PasswordAuthenticationMethodItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param PasswordAuthenticationMethodItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?PasswordAuthenticationMethodItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

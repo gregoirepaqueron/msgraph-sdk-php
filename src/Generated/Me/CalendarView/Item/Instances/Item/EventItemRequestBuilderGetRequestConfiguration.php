@@ -20,8 +20,29 @@ class EventItemRequestBuilderGetRequestConfiguration
     public ?array $options = null;
     
     /**
-     * @var EventItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+     * @var EventItemRequestBuilderGetQueryParameters $queryParameters Request query parameters
     */
-    public ?EventItemRequestBuilderGetQueryParameters $queryParameters = null;
+    public EventItemRequestBuilderGetQueryParameters $queryParameters;
     
+    /**
+     * Instantiates a new EventItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $select Select properties to be returned
+     * @return EventItemRequestBuilderGetQueryParameters
+    */
+    public static function addQueryParameters(?array $select = null): EventItemRequestBuilderGetQueryParameters {
+        return new EventItemRequestBuilderGetQueryParameters($select);
+    }
+
+    /**
+     * Instantiates a new EventItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param EventItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?EventItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

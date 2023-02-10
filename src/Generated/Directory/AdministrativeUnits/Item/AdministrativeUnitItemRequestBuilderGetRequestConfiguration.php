@@ -20,8 +20,30 @@ class AdministrativeUnitItemRequestBuilderGetRequestConfiguration
     public ?array $options = null;
     
     /**
-     * @var AdministrativeUnitItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+     * @var AdministrativeUnitItemRequestBuilderGetQueryParameters $queryParameters Request query parameters
     */
-    public ?AdministrativeUnitItemRequestBuilderGetQueryParameters $queryParameters = null;
+    public AdministrativeUnitItemRequestBuilderGetQueryParameters $queryParameters;
     
+    /**
+     * Instantiates a new AdministrativeUnitItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return AdministrativeUnitItemRequestBuilderGetQueryParameters
+    */
+    public static function addQueryParameters(?array $expand = null, ?array $select = null): AdministrativeUnitItemRequestBuilderGetQueryParameters {
+        return new AdministrativeUnitItemRequestBuilderGetQueryParameters($expand, $select);
+    }
+
+    /**
+     * Instantiates a new AdministrativeUnitItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param AdministrativeUnitItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?AdministrativeUnitItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

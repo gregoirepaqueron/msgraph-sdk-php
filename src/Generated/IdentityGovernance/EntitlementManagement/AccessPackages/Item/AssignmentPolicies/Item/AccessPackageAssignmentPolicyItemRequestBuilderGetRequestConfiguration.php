@@ -20,8 +20,30 @@ class AccessPackageAssignmentPolicyItemRequestBuilderGetRequestConfiguration
     public ?array $options = null;
     
     /**
-     * @var AccessPackageAssignmentPolicyItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+     * @var AccessPackageAssignmentPolicyItemRequestBuilderGetQueryParameters $queryParameters Request query parameters
     */
-    public ?AccessPackageAssignmentPolicyItemRequestBuilderGetQueryParameters $queryParameters = null;
+    public AccessPackageAssignmentPolicyItemRequestBuilderGetQueryParameters $queryParameters;
     
+    /**
+     * Instantiates a new AccessPackageAssignmentPolicyItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return AccessPackageAssignmentPolicyItemRequestBuilderGetQueryParameters
+    */
+    public static function addQueryParameters(?array $expand = null, ?array $select = null): AccessPackageAssignmentPolicyItemRequestBuilderGetQueryParameters {
+        return new AccessPackageAssignmentPolicyItemRequestBuilderGetQueryParameters($expand, $select);
+    }
+
+    /**
+     * Instantiates a new AccessPackageAssignmentPolicyItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param AccessPackageAssignmentPolicyItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?AccessPackageAssignmentPolicyItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

@@ -20,8 +20,30 @@ class PlannerTaskItemRequestBuilderGetRequestConfiguration
     public ?array $options = null;
     
     /**
-     * @var PlannerTaskItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+     * @var PlannerTaskItemRequestBuilderGetQueryParameters $queryParameters Request query parameters
     */
-    public ?PlannerTaskItemRequestBuilderGetQueryParameters $queryParameters = null;
+    public PlannerTaskItemRequestBuilderGetQueryParameters $queryParameters;
     
+    /**
+     * Instantiates a new PlannerTaskItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return PlannerTaskItemRequestBuilderGetQueryParameters
+    */
+    public static function addQueryParameters(?array $expand = null, ?array $select = null): PlannerTaskItemRequestBuilderGetQueryParameters {
+        return new PlannerTaskItemRequestBuilderGetQueryParameters($expand, $select);
+    }
+
+    /**
+     * Instantiates a new PlannerTaskItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param PlannerTaskItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?PlannerTaskItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

@@ -20,8 +20,30 @@ class ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderGetRequestC
     public ?array $options = null;
     
     /**
-     * @var ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+     * @var ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderGetQueryParameters $queryParameters Request query parameters
     */
-    public ?ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderGetQueryParameters $queryParameters = null;
+    public ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderGetQueryParameters $queryParameters;
     
+    /**
+     * Instantiates a new ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderGetQueryParameters
+    */
+    public static function addQueryParameters(?array $expand = null, ?array $select = null): ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderGetQueryParameters {
+        return new ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderGetQueryParameters($expand, $select);
+    }
+
+    /**
+     * Instantiates a new ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

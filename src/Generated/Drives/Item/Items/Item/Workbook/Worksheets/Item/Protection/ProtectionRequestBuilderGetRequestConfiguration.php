@@ -20,8 +20,30 @@ class ProtectionRequestBuilderGetRequestConfiguration
     public ?array $options = null;
     
     /**
-     * @var ProtectionRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+     * @var ProtectionRequestBuilderGetQueryParameters $queryParameters Request query parameters
     */
-    public ?ProtectionRequestBuilderGetQueryParameters $queryParameters = null;
+    public ProtectionRequestBuilderGetQueryParameters $queryParameters;
     
+    /**
+     * Instantiates a new protectionRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return ProtectionRequestBuilderGetQueryParameters
+    */
+    public static function addQueryParameters(?array $expand = null, ?array $select = null): ProtectionRequestBuilderGetQueryParameters {
+        return new ProtectionRequestBuilderGetQueryParameters($expand, $select);
+    }
+
+    /**
+     * Instantiates a new protectionRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param ProtectionRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?ProtectionRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

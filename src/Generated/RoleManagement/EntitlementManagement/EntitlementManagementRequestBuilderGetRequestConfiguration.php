@@ -20,8 +20,30 @@ class EntitlementManagementRequestBuilderGetRequestConfiguration
     public ?array $options = null;
     
     /**
-     * @var EntitlementManagementRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+     * @var EntitlementManagementRequestBuilderGetQueryParameters $queryParameters Request query parameters
     */
-    public ?EntitlementManagementRequestBuilderGetQueryParameters $queryParameters = null;
+    public EntitlementManagementRequestBuilderGetQueryParameters $queryParameters;
     
+    /**
+     * Instantiates a new entitlementManagementRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return EntitlementManagementRequestBuilderGetQueryParameters
+    */
+    public static function addQueryParameters(?array $expand = null, ?array $select = null): EntitlementManagementRequestBuilderGetQueryParameters {
+        return new EntitlementManagementRequestBuilderGetQueryParameters($expand, $select);
+    }
+
+    /**
+     * Instantiates a new entitlementManagementRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param EntitlementManagementRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?EntitlementManagementRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }
