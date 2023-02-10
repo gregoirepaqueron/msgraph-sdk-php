@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Generated\ServicePrincipals\Item\Owners;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Generated\Models\DirectoryObjectCollectionResponse;
 use Microsoft\Graph\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Generated\Models\Promise;
 use Microsoft\Graph\Generated\ServicePrincipals\Item\Owners\Count\CountRequestBuilder;
 use Microsoft\Graph\Generated\ServicePrincipals\Item\Owners\MicrosoftGraphAppRoleAssignment\MicrosoftGraphAppRoleAssignmentRequestBuilder;
 use Microsoft\Graph\Generated\ServicePrincipals\Item\Owners\MicrosoftGraphEndpoint\MicrosoftGraphEndpointRequestBuilder;
@@ -103,14 +103,14 @@ class OwnersRequestBuilder
      * @return Promise
      * @link https://docs.microsoft.com/graph/api/serviceprincipal-list-owners?view=graph-rest-1.0 Find more info here
     */
-    public function get(?OwnersRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?OwnersRequestBuilderGetRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [DirectoryObjectCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Promise::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }

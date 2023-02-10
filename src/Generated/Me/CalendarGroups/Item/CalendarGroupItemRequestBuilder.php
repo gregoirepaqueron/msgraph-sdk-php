@@ -9,6 +9,7 @@ use Microsoft\Graph\Generated\Me\CalendarGroups\Item\Calendars\CalendarsRequestB
 use Microsoft\Graph\Generated\Me\CalendarGroups\Item\Calendars\Item\CalendarItemRequestBuilder;
 use Microsoft\Graph\Generated\Models\CalendarGroup;
 use Microsoft\Graph\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Generated\Models\Promise;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -74,14 +75,14 @@ class CalendarGroupItemRequestBuilder
      * @param CalendarGroupItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
-    public function delete(?CalendarGroupItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?CalendarGroupItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, 'Promise', $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -92,14 +93,14 @@ class CalendarGroupItemRequestBuilder
      * @param CalendarGroupItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
-    public function get(?CalendarGroupItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?CalendarGroupItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [CalendarGroup::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Promise::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -107,18 +108,18 @@ class CalendarGroupItemRequestBuilder
 
     /**
      * Update the navigation property calendarGroups in me
-     * @param CalendarGroup $body The request body
+     * @param \Microsoft\Graph\Generated\Models\CalendarGroup $body The request body
      * @param CalendarGroupItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
-    public function patch(CalendarGroup $body, ?CalendarGroupItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(\Microsoft\Graph\Generated\Models\CalendarGroup $body, ?CalendarGroupItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [CalendarGroup::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Promise::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -172,11 +173,11 @@ class CalendarGroupItemRequestBuilder
 
     /**
      * Update the navigation property calendarGroups in me
-     * @param CalendarGroup $body The request body
+     * @param \Microsoft\Graph\Generated\Models\CalendarGroup $body The request body
      * @param CalendarGroupItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(CalendarGroup $body, ?CalendarGroupItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(\Microsoft\Graph\Generated\Models\CalendarGroup $body, ?CalendarGroupItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

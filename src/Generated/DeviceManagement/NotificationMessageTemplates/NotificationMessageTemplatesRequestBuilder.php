@@ -7,8 +7,8 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Generated\DeviceManagement\NotificationMessageTemplates\Count\CountRequestBuilder;
 use Microsoft\Graph\Generated\Models\NotificationMessageTemplate;
-use Microsoft\Graph\Generated\Models\NotificationMessageTemplateCollectionResponse;
 use Microsoft\Graph\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Generated\Models\Promise;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -63,14 +63,14 @@ class NotificationMessageTemplatesRequestBuilder
      * @param NotificationMessageTemplatesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
-    public function get(?NotificationMessageTemplatesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?NotificationMessageTemplatesRequestBuilderGetRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [NotificationMessageTemplateCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Promise::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -78,18 +78,18 @@ class NotificationMessageTemplatesRequestBuilder
 
     /**
      * Create new navigation property to notificationMessageTemplates for deviceManagement
-     * @param NotificationMessageTemplate $body The request body
+     * @param \Microsoft\Graph\Generated\Models\NotificationMessageTemplate $body The request body
      * @param NotificationMessageTemplatesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
-    public function post(NotificationMessageTemplate $body, ?NotificationMessageTemplatesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(\Microsoft\Graph\Generated\Models\NotificationMessageTemplate $body, ?NotificationMessageTemplatesRequestBuilderPostRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [NotificationMessageTemplate::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Promise::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -122,11 +122,11 @@ class NotificationMessageTemplatesRequestBuilder
 
     /**
      * Create new navigation property to notificationMessageTemplates for deviceManagement
-     * @param NotificationMessageTemplate $body The request body
+     * @param \Microsoft\Graph\Generated\Models\NotificationMessageTemplate $body The request body
      * @param NotificationMessageTemplatesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(NotificationMessageTemplate $body, ?NotificationMessageTemplatesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(\Microsoft\Graph\Generated\Models\NotificationMessageTemplate $body, ?NotificationMessageTemplatesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

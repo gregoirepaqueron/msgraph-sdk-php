@@ -8,8 +8,8 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Generated\Education\Classes\Count\CountRequestBuilder;
 use Microsoft\Graph\Generated\Education\Classes\MicrosoftGraphDelta\MicrosoftGraphDeltaRequestBuilder;
 use Microsoft\Graph\Generated\Models\EducationClass;
-use Microsoft\Graph\Generated\Models\EducationClassCollectionResponse;
 use Microsoft\Graph\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Generated\Models\Promise;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -72,14 +72,14 @@ class ClassesRequestBuilder
      * @return Promise
      * @link https://docs.microsoft.com/graph/api/educationclass-list?view=graph-rest-1.0 Find more info here
     */
-    public function get(?ClassesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ClassesRequestBuilderGetRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [EducationClassCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Promise::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -87,19 +87,19 @@ class ClassesRequestBuilder
 
     /**
      * Create a new educationClass object.
-     * @param EducationClass $body The request body
+     * @param \Microsoft\Graph\Generated\Models\EducationClass $body The request body
      * @param ClassesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://docs.microsoft.com/graph/api/educationclass-post?view=graph-rest-1.0 Find more info here
     */
-    public function post(EducationClass $body, ?ClassesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(\Microsoft\Graph\Generated\Models\EducationClass $body, ?ClassesRequestBuilderPostRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [EducationClass::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Promise::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -132,11 +132,11 @@ class ClassesRequestBuilder
 
     /**
      * Create a new educationClass object.
-     * @param EducationClass $body The request body
+     * @param \Microsoft\Graph\Generated\Models\EducationClass $body The request body
      * @param ClassesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(EducationClass $body, ?ClassesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(\Microsoft\Graph\Generated\Models\EducationClass $body, ?ClassesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

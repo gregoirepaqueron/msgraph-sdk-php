@@ -6,8 +6,8 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Generated\Models\Promise;
 use Microsoft\Graph\Generated\Models\UnifiedRoleManagementPolicy;
-use Microsoft\Graph\Generated\Models\UnifiedRoleManagementPolicyCollectionResponse;
 use Microsoft\Graph\Generated\Policies\RoleManagementPolicies\Count\CountRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -64,14 +64,14 @@ class RoleManagementPoliciesRequestBuilder
      * @return Promise
      * @link https://docs.microsoft.com/graph/api/policyroot-list-rolemanagementpolicies?view=graph-rest-1.0 Find more info here
     */
-    public function get(?RoleManagementPoliciesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?RoleManagementPoliciesRequestBuilderGetRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [UnifiedRoleManagementPolicyCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Promise::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -79,18 +79,18 @@ class RoleManagementPoliciesRequestBuilder
 
     /**
      * Create new navigation property to roleManagementPolicies for policies
-     * @param UnifiedRoleManagementPolicy $body The request body
+     * @param \Microsoft\Graph\Generated\Models\UnifiedRoleManagementPolicy $body The request body
      * @param RoleManagementPoliciesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
-    public function post(UnifiedRoleManagementPolicy $body, ?RoleManagementPoliciesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(\Microsoft\Graph\Generated\Models\UnifiedRoleManagementPolicy $body, ?RoleManagementPoliciesRequestBuilderPostRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [UnifiedRoleManagementPolicy::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Promise::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -123,11 +123,11 @@ class RoleManagementPoliciesRequestBuilder
 
     /**
      * Create new navigation property to roleManagementPolicies for policies
-     * @param UnifiedRoleManagementPolicy $body The request body
+     * @param \Microsoft\Graph\Generated\Models\UnifiedRoleManagementPolicy $body The request body
      * @param RoleManagementPoliciesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(UnifiedRoleManagementPolicy $body, ?RoleManagementPoliciesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(\Microsoft\Graph\Generated\Models\UnifiedRoleManagementPolicy $body, ?RoleManagementPoliciesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

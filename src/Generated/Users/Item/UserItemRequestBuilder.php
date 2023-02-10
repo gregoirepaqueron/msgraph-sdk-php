@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Generated\Models\Promise;
 use Microsoft\Graph\Generated\Models\User;
 use Microsoft\Graph\Generated\Users\Item\Activities\ActivitiesRequestBuilder;
 use Microsoft\Graph\Generated\Users\Item\Activities\Item\UserActivityItemRequestBuilder;
@@ -718,14 +719,14 @@ class UserItemRequestBuilder
      * @return Promise
      * @link https://docs.microsoft.com/graph/api/user-delete?view=graph-rest-1.0 Find more info here
     */
-    public function delete(?UserItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?UserItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, 'Promise', $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -803,14 +804,14 @@ class UserItemRequestBuilder
      * @return Promise
      * @link https://docs.microsoft.com/graph/api/user-get?view=graph-rest-1.0 Find more info here
     */
-    public function get(?UserItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?UserItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [User::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Promise::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -959,19 +960,19 @@ class UserItemRequestBuilder
 
     /**
      * Update the properties of a user object. Not all properties can be updated by Member or Guest users with their default permissions without Administrator roles. Compare member and guest default permissions to see properties they can manage.
-     * @param User $body The request body
+     * @param \Microsoft\Graph\Generated\Models\User $body The request body
      * @param UserItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0 Find more info here
     */
-    public function patch(User $body, ?UserItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(\Microsoft\Graph\Generated\Models\User $body, ?UserItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [User::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Promise::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -1069,11 +1070,11 @@ class UserItemRequestBuilder
 
     /**
      * Update the properties of a user object. Not all properties can be updated by Member or Guest users with their default permissions without Administrator roles. Compare member and guest default permissions to see properties they can manage.
-     * @param User $body The request body
+     * @param \Microsoft\Graph\Generated\Models\User $body The request body
      * @param UserItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(User $body, ?UserItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(\Microsoft\Graph\Generated\Models\User $body, ?UserItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

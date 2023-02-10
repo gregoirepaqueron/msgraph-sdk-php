@@ -10,8 +10,8 @@ use Microsoft\Graph\Generated\DirectoryObjects\MicrosoftGraphGetAvailableExtensi
 use Microsoft\Graph\Generated\DirectoryObjects\MicrosoftGraphGetByIds\MicrosoftGraphGetByIdsRequestBuilder;
 use Microsoft\Graph\Generated\DirectoryObjects\MicrosoftGraphValidateProperties\MicrosoftGraphValidatePropertiesRequestBuilder;
 use Microsoft\Graph\Generated\Models\DirectoryObject;
-use Microsoft\Graph\Generated\Models\DirectoryObjectCollectionResponse;
 use Microsoft\Graph\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Generated\Models\Promise;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -87,14 +87,14 @@ class DirectoryObjectsRequestBuilder
      * @param DirectoryObjectsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
-    public function get(?DirectoryObjectsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?DirectoryObjectsRequestBuilderGetRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [DirectoryObjectCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Promise::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -102,18 +102,18 @@ class DirectoryObjectsRequestBuilder
 
     /**
      * Add new entity to directoryObjects
-     * @param DirectoryObject $body The request body
+     * @param \Microsoft\Graph\Generated\Models\DirectoryObject $body The request body
      * @param DirectoryObjectsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
-    public function post(DirectoryObject $body, ?DirectoryObjectsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(\Microsoft\Graph\Generated\Models\DirectoryObject $body, ?DirectoryObjectsRequestBuilderPostRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [DirectoryObject::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Promise::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -146,11 +146,11 @@ class DirectoryObjectsRequestBuilder
 
     /**
      * Add new entity to directoryObjects
-     * @param DirectoryObject $body The request body
+     * @param \Microsoft\Graph\Generated\Models\DirectoryObject $body The request body
      * @param DirectoryObjectsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(DirectoryObject $body, ?DirectoryObjectsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(\Microsoft\Graph\Generated\Models\DirectoryObject $body, ?DirectoryObjectsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

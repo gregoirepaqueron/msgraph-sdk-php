@@ -20,8 +20,30 @@ class TeamsAsyncOperationItemRequestBuilderGetRequestConfiguration
     public ?array $options = null;
     
     /**
-     * @var TeamsAsyncOperationItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+     * @var TeamsAsyncOperationItemRequestBuilderGetQueryParameters $queryParameters Request query parameters
     */
-    public ?TeamsAsyncOperationItemRequestBuilderGetQueryParameters $queryParameters = null;
+    public TeamsAsyncOperationItemRequestBuilderGetQueryParameters $queryParameters;
     
+    /**
+     * Instantiates a new TeamsAsyncOperationItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return TeamsAsyncOperationItemRequestBuilderGetQueryParameters
+    */
+    public static function addQueryParameters(?array $expand = null, ?array $select = null): TeamsAsyncOperationItemRequestBuilderGetQueryParameters {
+        return new TeamsAsyncOperationItemRequestBuilderGetQueryParameters($expand, $select);
+    }
+
+    /**
+     * Instantiates a new TeamsAsyncOperationItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param TeamsAsyncOperationItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?TeamsAsyncOperationItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

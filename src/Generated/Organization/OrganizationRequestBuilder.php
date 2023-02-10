@@ -7,7 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Generated\Models\Organization;
-use Microsoft\Graph\Generated\Models\OrganizationCollectionResponse;
+use Microsoft\Graph\Generated\Models\Promise;
 use Microsoft\Graph\Generated\Organization\Count\CountRequestBuilder;
 use Microsoft\Graph\Generated\Organization\MicrosoftGraphGetAvailableExtensionProperties\MicrosoftGraphGetAvailableExtensionPropertiesRequestBuilder;
 use Microsoft\Graph\Generated\Organization\MicrosoftGraphGetByIds\MicrosoftGraphGetByIdsRequestBuilder;
@@ -88,14 +88,14 @@ class OrganizationRequestBuilder
      * @return Promise
      * @link https://docs.microsoft.com/graph/api/organization-list?view=graph-rest-1.0 Find more info here
     */
-    public function get(?OrganizationRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?OrganizationRequestBuilderGetRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [OrganizationCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Promise::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -103,18 +103,18 @@ class OrganizationRequestBuilder
 
     /**
      * Add new entity to organization
-     * @param Organization $body The request body
+     * @param \Microsoft\Graph\Generated\Models\Organization $body The request body
      * @param OrganizationRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
-    public function post(Organization $body, ?OrganizationRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(\Microsoft\Graph\Generated\Models\Organization $body, ?OrganizationRequestBuilderPostRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [Organization::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Promise::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -147,11 +147,11 @@ class OrganizationRequestBuilder
 
     /**
      * Add new entity to organization
-     * @param Organization $body The request body
+     * @param \Microsoft\Graph\Generated\Models\Organization $body The request body
      * @param OrganizationRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(Organization $body, ?OrganizationRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(\Microsoft\Graph\Generated\Models\Organization $body, ?OrganizationRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

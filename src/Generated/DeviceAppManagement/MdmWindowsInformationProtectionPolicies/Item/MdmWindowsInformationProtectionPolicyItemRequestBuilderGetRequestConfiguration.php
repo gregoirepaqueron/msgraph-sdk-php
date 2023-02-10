@@ -20,8 +20,30 @@ class MdmWindowsInformationProtectionPolicyItemRequestBuilderGetRequestConfigura
     public ?array $options = null;
     
     /**
-     * @var MdmWindowsInformationProtectionPolicyItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+     * @var MdmWindowsInformationProtectionPolicyItemRequestBuilderGetQueryParameters $queryParameters Request query parameters
     */
-    public ?MdmWindowsInformationProtectionPolicyItemRequestBuilderGetQueryParameters $queryParameters = null;
+    public MdmWindowsInformationProtectionPolicyItemRequestBuilderGetQueryParameters $queryParameters;
     
+    /**
+     * Instantiates a new MdmWindowsInformationProtectionPolicyItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return MdmWindowsInformationProtectionPolicyItemRequestBuilderGetQueryParameters
+    */
+    public static function addQueryParameters(?array $expand = null, ?array $select = null): MdmWindowsInformationProtectionPolicyItemRequestBuilderGetQueryParameters {
+        return new MdmWindowsInformationProtectionPolicyItemRequestBuilderGetQueryParameters($expand, $select);
+    }
+
+    /**
+     * Instantiates a new MdmWindowsInformationProtectionPolicyItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param MdmWindowsInformationProtectionPolicyItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?MdmWindowsInformationProtectionPolicyItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

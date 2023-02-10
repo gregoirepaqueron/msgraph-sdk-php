@@ -20,8 +20,30 @@ class TodoTaskListItemRequestBuilderGetRequestConfiguration
     public ?array $options = null;
     
     /**
-     * @var TodoTaskListItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+     * @var TodoTaskListItemRequestBuilderGetQueryParameters $queryParameters Request query parameters
     */
-    public ?TodoTaskListItemRequestBuilderGetQueryParameters $queryParameters = null;
+    public TodoTaskListItemRequestBuilderGetQueryParameters $queryParameters;
     
+    /**
+     * Instantiates a new TodoTaskListItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return TodoTaskListItemRequestBuilderGetQueryParameters
+    */
+    public static function addQueryParameters(?array $expand = null, ?array $select = null): TodoTaskListItemRequestBuilderGetQueryParameters {
+        return new TodoTaskListItemRequestBuilderGetQueryParameters($expand, $select);
+    }
+
+    /**
+     * Instantiates a new TodoTaskListItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param TodoTaskListItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?TodoTaskListItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

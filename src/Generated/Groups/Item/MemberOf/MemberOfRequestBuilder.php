@@ -12,8 +12,8 @@ use Microsoft\Graph\Generated\Groups\Item\MemberOf\MicrosoftGraphGroup\Microsoft
 use Microsoft\Graph\Generated\Groups\Item\MemberOf\MicrosoftGraphOrgContact\MicrosoftGraphOrgContactRequestBuilder;
 use Microsoft\Graph\Generated\Groups\Item\MemberOf\MicrosoftGraphServicePrincipal\MicrosoftGraphServicePrincipalRequestBuilder;
 use Microsoft\Graph\Generated\Groups\Item\MemberOf\MicrosoftGraphUser\MicrosoftGraphUserRequestBuilder;
-use Microsoft\Graph\Generated\Models\DirectoryObjectCollectionResponse;
 use Microsoft\Graph\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Generated\Models\Promise;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -111,14 +111,14 @@ class MemberOfRequestBuilder
      * @return Promise
      * @link https://docs.microsoft.com/graph/api/group-list-memberof?view=graph-rest-1.0 Find more info here
     */
-    public function get(?MemberOfRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?MemberOfRequestBuilderGetRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [DirectoryObjectCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Promise::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }

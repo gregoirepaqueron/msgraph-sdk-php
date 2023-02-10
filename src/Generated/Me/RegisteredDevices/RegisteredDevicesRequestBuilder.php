@@ -9,8 +9,8 @@ use Microsoft\Graph\Generated\Me\RegisteredDevices\Count\CountRequestBuilder;
 use Microsoft\Graph\Generated\Me\RegisteredDevices\MicrosoftGraphAppRoleAssignment\MicrosoftGraphAppRoleAssignmentRequestBuilder;
 use Microsoft\Graph\Generated\Me\RegisteredDevices\MicrosoftGraphDevice\MicrosoftGraphDeviceRequestBuilder;
 use Microsoft\Graph\Generated\Me\RegisteredDevices\MicrosoftGraphEndpoint\MicrosoftGraphEndpointRequestBuilder;
-use Microsoft\Graph\Generated\Models\DirectoryObjectCollectionResponse;
 use Microsoft\Graph\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Generated\Models\Promise;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -87,14 +87,14 @@ class RegisteredDevicesRequestBuilder
      * @return Promise
      * @link https://docs.microsoft.com/graph/api/user-list-registereddevices?view=graph-rest-1.0 Find more info here
     */
-    public function get(?RegisteredDevicesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?RegisteredDevicesRequestBuilderGetRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [DirectoryObjectCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Promise::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }

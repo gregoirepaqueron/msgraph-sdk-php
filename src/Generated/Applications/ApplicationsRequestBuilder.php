@@ -11,8 +11,8 @@ use Microsoft\Graph\Generated\Applications\MicrosoftGraphGetAvailableExtensionPr
 use Microsoft\Graph\Generated\Applications\MicrosoftGraphGetByIds\MicrosoftGraphGetByIdsRequestBuilder;
 use Microsoft\Graph\Generated\Applications\MicrosoftGraphValidateProperties\MicrosoftGraphValidatePropertiesRequestBuilder;
 use Microsoft\Graph\Generated\Models\Application;
-use Microsoft\Graph\Generated\Models\ApplicationCollectionResponse;
 use Microsoft\Graph\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Generated\Models\Promise;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -96,14 +96,14 @@ class ApplicationsRequestBuilder
      * @return Promise
      * @link https://docs.microsoft.com/graph/api/application-list?view=graph-rest-1.0 Find more info here
     */
-    public function get(?ApplicationsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ApplicationsRequestBuilderGetRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [ApplicationCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Promise::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -111,19 +111,19 @@ class ApplicationsRequestBuilder
 
     /**
      * Create a new application object.
-     * @param Application $body The request body
+     * @param \Microsoft\Graph\Generated\Models\Application $body The request body
      * @param ApplicationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://docs.microsoft.com/graph/api/application-post-applications?view=graph-rest-1.0 Find more info here
     */
-    public function post(Application $body, ?ApplicationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(\Microsoft\Graph\Generated\Models\Application $body, ?ApplicationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [Application::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Promise::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -156,11 +156,11 @@ class ApplicationsRequestBuilder
 
     /**
      * Create a new application object.
-     * @param Application $body The request body
+     * @param \Microsoft\Graph\Generated\Models\Application $body The request body
      * @param ApplicationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(Application $body, ?ApplicationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(\Microsoft\Graph\Generated\Models\Application $body, ?ApplicationsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

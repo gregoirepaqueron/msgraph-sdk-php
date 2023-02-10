@@ -20,8 +20,30 @@ class UsedInsightItemRequestBuilderGetRequestConfiguration
     public ?array $options = null;
     
     /**
-     * @var UsedInsightItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+     * @var UsedInsightItemRequestBuilderGetQueryParameters $queryParameters Request query parameters
     */
-    public ?UsedInsightItemRequestBuilderGetQueryParameters $queryParameters = null;
+    public UsedInsightItemRequestBuilderGetQueryParameters $queryParameters;
     
+    /**
+     * Instantiates a new UsedInsightItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return UsedInsightItemRequestBuilderGetQueryParameters
+    */
+    public static function addQueryParameters(?array $expand = null, ?array $select = null): UsedInsightItemRequestBuilderGetQueryParameters {
+        return new UsedInsightItemRequestBuilderGetQueryParameters($expand, $select);
+    }
+
+    /**
+     * Instantiates a new UsedInsightItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param UsedInsightItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?UsedInsightItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

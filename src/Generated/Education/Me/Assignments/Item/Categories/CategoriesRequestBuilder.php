@@ -9,8 +9,8 @@ use Microsoft\Graph\Generated\Education\Me\Assignments\Item\Categories\Count\Cou
 use Microsoft\Graph\Generated\Education\Me\Assignments\Item\Categories\MicrosoftGraphDelta\MicrosoftGraphDeltaRequestBuilder;
 use Microsoft\Graph\Generated\Education\Me\Assignments\Item\Categories\Ref\RefRequestBuilder;
 use Microsoft\Graph\Generated\Models\EducationCategory;
-use Microsoft\Graph\Generated\Models\EducationCategoryCollectionResponse;
 use Microsoft\Graph\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Generated\Models\Promise;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -80,14 +80,14 @@ class CategoriesRequestBuilder
      * @return Promise
      * @link https://docs.microsoft.com/graph/api/educationassignment-list-categories?view=graph-rest-1.0 Find more info here
     */
-    public function get(?CategoriesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?CategoriesRequestBuilderGetRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [EducationCategoryCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Promise::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -95,18 +95,18 @@ class CategoriesRequestBuilder
 
     /**
      * Create new navigation property to categories for education
-     * @param EducationCategory $body The request body
+     * @param \Microsoft\Graph\Generated\Models\EducationCategory $body The request body
      * @param CategoriesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
-    public function post(EducationCategory $body, ?CategoriesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(\Microsoft\Graph\Generated\Models\EducationCategory $body, ?CategoriesRequestBuilderPostRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [EducationCategory::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Promise::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -139,11 +139,11 @@ class CategoriesRequestBuilder
 
     /**
      * Create new navigation property to categories for education
-     * @param EducationCategory $body The request body
+     * @param \Microsoft\Graph\Generated\Models\EducationCategory $body The request body
      * @param CategoriesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(EducationCategory $body, ?CategoriesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(\Microsoft\Graph\Generated\Models\EducationCategory $body, ?CategoriesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

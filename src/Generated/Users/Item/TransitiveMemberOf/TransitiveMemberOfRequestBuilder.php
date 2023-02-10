@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Generated\Users\Item\TransitiveMemberOf;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Generated\Models\DirectoryObjectCollectionResponse;
 use Microsoft\Graph\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Generated\Models\Promise;
 use Microsoft\Graph\Generated\Users\Item\TransitiveMemberOf\Count\CountRequestBuilder;
 use Microsoft\Graph\Generated\Users\Item\TransitiveMemberOf\MicrosoftGraphApplication\MicrosoftGraphApplicationRequestBuilder;
 use Microsoft\Graph\Generated\Users\Item\TransitiveMemberOf\MicrosoftGraphDevice\MicrosoftGraphDeviceRequestBuilder;
@@ -111,14 +111,14 @@ class TransitiveMemberOfRequestBuilder
      * @return Promise
      * @link https://docs.microsoft.com/graph/api/user-list-transitivememberof?view=graph-rest-1.0 Find more info here
     */
-    public function get(?TransitiveMemberOfRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?TransitiveMemberOfRequestBuilderGetRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [DirectoryObjectCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Promise::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }

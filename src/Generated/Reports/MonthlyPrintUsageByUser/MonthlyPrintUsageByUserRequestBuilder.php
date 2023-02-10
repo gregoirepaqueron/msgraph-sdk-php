@@ -7,7 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Generated\Models\PrintUsageByUser;
-use Microsoft\Graph\Generated\Models\PrintUsageByUserCollectionResponse;
+use Microsoft\Graph\Generated\Models\Promise;
 use Microsoft\Graph\Generated\Reports\MonthlyPrintUsageByUser\Count\CountRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -64,14 +64,14 @@ class MonthlyPrintUsageByUserRequestBuilder
      * @return Promise
      * @link https://docs.microsoft.com/graph/api/reportroot-list-monthlyprintusagebyuser?view=graph-rest-1.0 Find more info here
     */
-    public function get(?MonthlyPrintUsageByUserRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?MonthlyPrintUsageByUserRequestBuilderGetRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [PrintUsageByUserCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Promise::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -79,18 +79,18 @@ class MonthlyPrintUsageByUserRequestBuilder
 
     /**
      * Create new navigation property to monthlyPrintUsageByUser for reports
-     * @param PrintUsageByUser $body The request body
+     * @param \Microsoft\Graph\Generated\Models\PrintUsageByUser $body The request body
      * @param MonthlyPrintUsageByUserRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
-    public function post(PrintUsageByUser $body, ?MonthlyPrintUsageByUserRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(\Microsoft\Graph\Generated\Models\PrintUsageByUser $body, ?MonthlyPrintUsageByUserRequestBuilderPostRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [PrintUsageByUser::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Promise::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -123,11 +123,11 @@ class MonthlyPrintUsageByUserRequestBuilder
 
     /**
      * Create new navigation property to monthlyPrintUsageByUser for reports
-     * @param PrintUsageByUser $body The request body
+     * @param \Microsoft\Graph\Generated\Models\PrintUsageByUser $body The request body
      * @param MonthlyPrintUsageByUserRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(PrintUsageByUser $body, ?MonthlyPrintUsageByUserRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(\Microsoft\Graph\Generated\Models\PrintUsageByUser $body, ?MonthlyPrintUsageByUserRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

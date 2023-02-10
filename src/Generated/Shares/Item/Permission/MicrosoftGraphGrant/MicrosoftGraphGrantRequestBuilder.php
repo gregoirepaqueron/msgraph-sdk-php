@@ -55,14 +55,14 @@ class MicrosoftGraphGrantRequestBuilder
      * @return Promise
      * @link https://docs.microsoft.com/graph/api/permission-grant?view=graph-rest-1.0 Find more info here
     */
-    public function post(GrantPostRequestBody $body, ?MicrosoftGraphGrantRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(GrantPostRequestBody $body, ?MicrosoftGraphGrantRequestBuilderPostRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [GrantResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Promise::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }

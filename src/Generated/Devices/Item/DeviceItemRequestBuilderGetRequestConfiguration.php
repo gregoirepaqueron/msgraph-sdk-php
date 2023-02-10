@@ -20,8 +20,30 @@ class DeviceItemRequestBuilderGetRequestConfiguration
     public ?array $options = null;
     
     /**
-     * @var DeviceItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+     * @var DeviceItemRequestBuilderGetQueryParameters $queryParameters Request query parameters
     */
-    public ?DeviceItemRequestBuilderGetQueryParameters $queryParameters = null;
+    public DeviceItemRequestBuilderGetQueryParameters $queryParameters;
     
+    /**
+     * Instantiates a new DeviceItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return DeviceItemRequestBuilderGetQueryParameters
+    */
+    public static function addQueryParameters(?array $expand = null, ?array $select = null): DeviceItemRequestBuilderGetQueryParameters {
+        return new DeviceItemRequestBuilderGetQueryParameters($expand, $select);
+    }
+
+    /**
+     * Instantiates a new DeviceItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param DeviceItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?DeviceItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

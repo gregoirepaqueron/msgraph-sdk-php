@@ -20,8 +20,30 @@ class PrintServiceEndpointItemRequestBuilderGetRequestConfiguration
     public ?array $options = null;
     
     /**
-     * @var PrintServiceEndpointItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+     * @var PrintServiceEndpointItemRequestBuilderGetQueryParameters $queryParameters Request query parameters
     */
-    public ?PrintServiceEndpointItemRequestBuilderGetQueryParameters $queryParameters = null;
+    public PrintServiceEndpointItemRequestBuilderGetQueryParameters $queryParameters;
     
+    /**
+     * Instantiates a new PrintServiceEndpointItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return PrintServiceEndpointItemRequestBuilderGetQueryParameters
+    */
+    public static function addQueryParameters(?array $expand = null, ?array $select = null): PrintServiceEndpointItemRequestBuilderGetQueryParameters {
+        return new PrintServiceEndpointItemRequestBuilderGetQueryParameters($expand, $select);
+    }
+
+    /**
+     * Instantiates a new PrintServiceEndpointItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param PrintServiceEndpointItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?PrintServiceEndpointItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

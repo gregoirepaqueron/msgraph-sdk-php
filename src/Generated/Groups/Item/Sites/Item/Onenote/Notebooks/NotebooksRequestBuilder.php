@@ -9,8 +9,8 @@ use Microsoft\Graph\Generated\Groups\Item\Sites\Item\Onenote\Notebooks\Count\Cou
 use Microsoft\Graph\Generated\Groups\Item\Sites\Item\Onenote\Notebooks\MicrosoftGraphGetNotebookFromWebUrl\MicrosoftGraphGetNotebookFromWebUrlRequestBuilder;
 use Microsoft\Graph\Generated\Groups\Item\Sites\Item\Onenote\Notebooks\MicrosoftGraphGetRecentNotebooksWithIncludePersonalNotebooks\MicrosoftGraphGetRecentNotebooksWithIncludePersonalNotebooksRequestBuilder;
 use Microsoft\Graph\Generated\Models\Notebook;
-use Microsoft\Graph\Generated\Models\NotebookCollectionResponse;
 use Microsoft\Graph\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Generated\Models\Promise;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -73,14 +73,14 @@ class NotebooksRequestBuilder
      * @return Promise
      * @link https://docs.microsoft.com/graph/api/onenote-list-notebooks?view=graph-rest-1.0 Find more info here
     */
-    public function get(?NotebooksRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?NotebooksRequestBuilderGetRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [NotebookCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Promise::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -97,19 +97,19 @@ class NotebooksRequestBuilder
 
     /**
      * Create a new OneNote notebook.
-     * @param Notebook $body The request body
+     * @param \Microsoft\Graph\Generated\Models\Notebook $body The request body
      * @param NotebooksRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://docs.microsoft.com/graph/api/onenote-post-notebooks?view=graph-rest-1.0 Find more info here
     */
-    public function post(Notebook $body, ?NotebooksRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(\Microsoft\Graph\Generated\Models\Notebook $body, ?NotebooksRequestBuilderPostRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [Notebook::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Promise::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -142,11 +142,11 @@ class NotebooksRequestBuilder
 
     /**
      * Create a new OneNote notebook.
-     * @param Notebook $body The request body
+     * @param \Microsoft\Graph\Generated\Models\Notebook $body The request body
      * @param NotebooksRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(Notebook $body, ?NotebooksRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(\Microsoft\Graph\Generated\Models\Notebook $body, ?NotebooksRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

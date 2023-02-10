@@ -20,8 +20,29 @@ class AgreementItemRequestBuilderGetRequestConfiguration
     public ?array $options = null;
     
     /**
-     * @var AgreementItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+     * @var AgreementItemRequestBuilderGetQueryParameters $queryParameters Request query parameters
     */
-    public ?AgreementItemRequestBuilderGetQueryParameters $queryParameters = null;
+    public AgreementItemRequestBuilderGetQueryParameters $queryParameters;
     
+    /**
+     * Instantiates a new AgreementItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $select Select properties to be returned
+     * @return AgreementItemRequestBuilderGetQueryParameters
+    */
+    public static function addQueryParameters(?array $select = null): AgreementItemRequestBuilderGetQueryParameters {
+        return new AgreementItemRequestBuilderGetQueryParameters($select);
+    }
+
+    /**
+     * Instantiates a new AgreementItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param AgreementItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?AgreementItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

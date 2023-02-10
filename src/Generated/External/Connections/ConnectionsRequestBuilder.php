@@ -7,7 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Generated\External\Connections\Count\CountRequestBuilder;
 use Microsoft\Graph\Generated\Models\ExternalConnectors\ExternalConnection;
-use Microsoft\Graph\Generated\Models\ExternalConnectors\ExternalConnectionCollectionResponse;
+use Microsoft\Graph\Generated\Models\ExternalConnectors\Promise;
 use Microsoft\Graph\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -64,14 +64,14 @@ class ConnectionsRequestBuilder
      * @return Promise
      * @link https://docs.microsoft.com/graph/api/externalconnectors-externalconnection-list?view=graph-rest-1.0 Find more info here
     */
-    public function get(?ConnectionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ConnectionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [ExternalConnectionCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Promise::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -79,19 +79,19 @@ class ConnectionsRequestBuilder
 
     /**
      * Create a new externalConnection object.
-     * @param ExternalConnection $body The request body
+     * @param \Microsoft\Graph\Generated\Models\ExternalConnectors\ExternalConnection $body The request body
      * @param ConnectionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://docs.microsoft.com/graph/api/externalconnectors-external-post-connections?view=graph-rest-1.0 Find more info here
     */
-    public function post(ExternalConnection $body, ?ConnectionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(\Microsoft\Graph\Generated\Models\ExternalConnectors\ExternalConnection $body, ?ConnectionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [ExternalConnection::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Promise::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -124,11 +124,11 @@ class ConnectionsRequestBuilder
 
     /**
      * Create a new externalConnection object.
-     * @param ExternalConnection $body The request body
+     * @param \Microsoft\Graph\Generated\Models\ExternalConnectors\ExternalConnection $body The request body
      * @param ConnectionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(ExternalConnection $body, ?ConnectionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(\Microsoft\Graph\Generated\Models\ExternalConnectors\ExternalConnection $body, ?ConnectionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

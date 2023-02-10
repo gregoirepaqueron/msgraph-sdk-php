@@ -20,8 +20,30 @@ class IdentitySecurityDefaultsEnforcementPolicyRequestBuilderGetRequestConfigura
     public ?array $options = null;
     
     /**
-     * @var IdentitySecurityDefaultsEnforcementPolicyRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+     * @var IdentitySecurityDefaultsEnforcementPolicyRequestBuilderGetQueryParameters $queryParameters Request query parameters
     */
-    public ?IdentitySecurityDefaultsEnforcementPolicyRequestBuilderGetQueryParameters $queryParameters = null;
+    public IdentitySecurityDefaultsEnforcementPolicyRequestBuilderGetQueryParameters $queryParameters;
     
+    /**
+     * Instantiates a new identitySecurityDefaultsEnforcementPolicyRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return IdentitySecurityDefaultsEnforcementPolicyRequestBuilderGetQueryParameters
+    */
+    public static function addQueryParameters(?array $expand = null, ?array $select = null): IdentitySecurityDefaultsEnforcementPolicyRequestBuilderGetQueryParameters {
+        return new IdentitySecurityDefaultsEnforcementPolicyRequestBuilderGetQueryParameters($expand, $select);
+    }
+
+    /**
+     * Instantiates a new identitySecurityDefaultsEnforcementPolicyRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param IdentitySecurityDefaultsEnforcementPolicyRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?IdentitySecurityDefaultsEnforcementPolicyRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

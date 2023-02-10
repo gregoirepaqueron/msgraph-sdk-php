@@ -54,14 +54,14 @@ class MicrosoftGraphSubscribeByMailRequestBuilder
      * @return Promise
      * @link https://docs.microsoft.com/graph/api/group-subscribebymail?view=graph-rest-1.0 Find more info here
     */
-    public function post(?MicrosoftGraphSubscribeByMailRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(?MicrosoftGraphSubscribeByMailRequestBuilderPostRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toPostRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, 'Promise', $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }

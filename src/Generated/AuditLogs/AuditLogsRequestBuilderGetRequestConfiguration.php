@@ -20,8 +20,30 @@ class AuditLogsRequestBuilderGetRequestConfiguration
     public ?array $options = null;
     
     /**
-     * @var AuditLogsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+     * @var AuditLogsRequestBuilderGetQueryParameters $queryParameters Request query parameters
     */
-    public ?AuditLogsRequestBuilderGetQueryParameters $queryParameters = null;
+    public AuditLogsRequestBuilderGetQueryParameters $queryParameters;
     
+    /**
+     * Instantiates a new auditLogsRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return AuditLogsRequestBuilderGetQueryParameters
+    */
+    public static function addQueryParameters(?array $expand = null, ?array $select = null): AuditLogsRequestBuilderGetQueryParameters {
+        return new AuditLogsRequestBuilderGetQueryParameters($expand, $select);
+    }
+
+    /**
+     * Instantiates a new auditLogsRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param AuditLogsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?AuditLogsRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

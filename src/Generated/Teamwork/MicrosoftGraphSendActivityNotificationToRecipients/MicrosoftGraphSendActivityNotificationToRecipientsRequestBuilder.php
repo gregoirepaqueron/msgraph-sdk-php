@@ -54,14 +54,14 @@ class MicrosoftGraphSendActivityNotificationToRecipientsRequestBuilder
      * @param MicrosoftGraphSendActivityNotificationToRecipientsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
-    public function post(SendActivityNotificationToRecipientsPostRequestBody $body, ?MicrosoftGraphSendActivityNotificationToRecipientsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(SendActivityNotificationToRecipientsPostRequestBody $body, ?MicrosoftGraphSendActivityNotificationToRecipientsRequestBuilderPostRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, 'Promise', $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }

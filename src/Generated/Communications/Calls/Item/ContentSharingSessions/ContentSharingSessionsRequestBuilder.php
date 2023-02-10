@@ -7,8 +7,8 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Generated\Communications\Calls\Item\ContentSharingSessions\Count\CountRequestBuilder;
 use Microsoft\Graph\Generated\Models\ContentSharingSession;
-use Microsoft\Graph\Generated\Models\ContentSharingSessionCollectionResponse;
 use Microsoft\Graph\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Generated\Models\Promise;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -64,14 +64,14 @@ class ContentSharingSessionsRequestBuilder
      * @return Promise
      * @link https://docs.microsoft.com/graph/api/call-list-contentsharingsessions?view=graph-rest-1.0 Find more info here
     */
-    public function get(?ContentSharingSessionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ContentSharingSessionsRequestBuilderGetRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [ContentSharingSessionCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Promise::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -79,18 +79,18 @@ class ContentSharingSessionsRequestBuilder
 
     /**
      * Create new navigation property to contentSharingSessions for communications
-     * @param ContentSharingSession $body The request body
+     * @param \Microsoft\Graph\Generated\Models\ContentSharingSession $body The request body
      * @param ContentSharingSessionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
-    public function post(ContentSharingSession $body, ?ContentSharingSessionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(\Microsoft\Graph\Generated\Models\ContentSharingSession $body, ?ContentSharingSessionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [ContentSharingSession::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Promise::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -123,11 +123,11 @@ class ContentSharingSessionsRequestBuilder
 
     /**
      * Create new navigation property to contentSharingSessions for communications
-     * @param ContentSharingSession $body The request body
+     * @param \Microsoft\Graph\Generated\Models\ContentSharingSession $body The request body
      * @param ContentSharingSessionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(ContentSharingSession $body, ?ContentSharingSessionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(\Microsoft\Graph\Generated\Models\ContentSharingSession $body, ?ContentSharingSessionsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

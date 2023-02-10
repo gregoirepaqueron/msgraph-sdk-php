@@ -11,8 +11,8 @@ use Microsoft\Graph\Generated\Devices\MicrosoftGraphGetAvailableExtensionPropert
 use Microsoft\Graph\Generated\Devices\MicrosoftGraphGetByIds\MicrosoftGraphGetByIdsRequestBuilder;
 use Microsoft\Graph\Generated\Devices\MicrosoftGraphValidateProperties\MicrosoftGraphValidatePropertiesRequestBuilder;
 use Microsoft\Graph\Generated\Models\Device;
-use Microsoft\Graph\Generated\Models\DeviceCollectionResponse;
 use Microsoft\Graph\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Generated\Models\Promise;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -96,14 +96,14 @@ class DevicesRequestBuilder
      * @return Promise
      * @link https://docs.microsoft.com/graph/api/device-list?view=graph-rest-1.0 Find more info here
     */
-    public function get(?DevicesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?DevicesRequestBuilderGetRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [DeviceCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Promise::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -111,19 +111,19 @@ class DevicesRequestBuilder
 
     /**
      * Create and register a new device in the organization.
-     * @param Device $body The request body
+     * @param \Microsoft\Graph\Generated\Models\Device $body The request body
      * @param DevicesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://docs.microsoft.com/graph/api/device-post-devices?view=graph-rest-1.0 Find more info here
     */
-    public function post(Device $body, ?DevicesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(\Microsoft\Graph\Generated\Models\Device $body, ?DevicesRequestBuilderPostRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [Device::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Promise::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -156,11 +156,11 @@ class DevicesRequestBuilder
 
     /**
      * Create and register a new device in the organization.
-     * @param Device $body The request body
+     * @param \Microsoft\Graph\Generated\Models\Device $body The request body
      * @param DevicesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(Device $body, ?DevicesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(\Microsoft\Graph\Generated\Models\Device $body, ?DevicesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

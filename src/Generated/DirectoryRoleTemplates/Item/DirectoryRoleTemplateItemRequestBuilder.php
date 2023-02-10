@@ -12,6 +12,7 @@ use Microsoft\Graph\Generated\DirectoryRoleTemplates\Item\MicrosoftGraphGetMembe
 use Microsoft\Graph\Generated\DirectoryRoleTemplates\Item\MicrosoftGraphRestore\MicrosoftGraphRestoreRequestBuilder;
 use Microsoft\Graph\Generated\Models\DirectoryRoleTemplate;
 use Microsoft\Graph\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Generated\Models\Promise;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -94,14 +95,14 @@ class DirectoryRoleTemplateItemRequestBuilder
      * @param DirectoryRoleTemplateItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
-    public function delete(?DirectoryRoleTemplateItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?DirectoryRoleTemplateItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, 'Promise', $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -113,14 +114,14 @@ class DirectoryRoleTemplateItemRequestBuilder
      * @return Promise
      * @link https://docs.microsoft.com/graph/api/directoryroletemplate-get?view=graph-rest-1.0 Find more info here
     */
-    public function get(?DirectoryRoleTemplateItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?DirectoryRoleTemplateItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [DirectoryRoleTemplate::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Promise::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -128,18 +129,18 @@ class DirectoryRoleTemplateItemRequestBuilder
 
     /**
      * Update entity in directoryRoleTemplates
-     * @param DirectoryRoleTemplate $body The request body
+     * @param \Microsoft\Graph\Generated\Models\DirectoryRoleTemplate $body The request body
      * @param DirectoryRoleTemplateItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
-    public function patch(DirectoryRoleTemplate $body, ?DirectoryRoleTemplateItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(\Microsoft\Graph\Generated\Models\DirectoryRoleTemplate $body, ?DirectoryRoleTemplateItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [DirectoryRoleTemplate::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Promise::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -193,11 +194,11 @@ class DirectoryRoleTemplateItemRequestBuilder
 
     /**
      * Update entity in directoryRoleTemplates
-     * @param DirectoryRoleTemplate $body The request body
+     * @param \Microsoft\Graph\Generated\Models\DirectoryRoleTemplate $body The request body
      * @param DirectoryRoleTemplateItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(DirectoryRoleTemplate $body, ?DirectoryRoleTemplateItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(\Microsoft\Graph\Generated\Models\DirectoryRoleTemplate $body, ?DirectoryRoleTemplateItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

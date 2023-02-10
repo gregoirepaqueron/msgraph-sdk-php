@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Generated\ApplicationTemplates\Item\MicrosoftGraphInst
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Generated\Models\ApplicationServicePrincipal;
 use Microsoft\Graph\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Generated\Models\Promise;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -56,14 +56,14 @@ class MicrosoftGraphInstantiateRequestBuilder
      * @return Promise
      * @link https://docs.microsoft.com/graph/api/applicationtemplate-instantiate?view=graph-rest-1.0 Find more info here
     */
-    public function post(InstantiatePostRequestBody $body, ?MicrosoftGraphInstantiateRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(InstantiatePostRequestBody $body, ?MicrosoftGraphInstantiateRequestBuilderPostRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [ApplicationServicePrincipal::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Promise::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }

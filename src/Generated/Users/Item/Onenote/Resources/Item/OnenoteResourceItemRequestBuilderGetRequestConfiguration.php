@@ -20,8 +20,30 @@ class OnenoteResourceItemRequestBuilderGetRequestConfiguration
     public ?array $options = null;
     
     /**
-     * @var OnenoteResourceItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+     * @var OnenoteResourceItemRequestBuilderGetQueryParameters $queryParameters Request query parameters
     */
-    public ?OnenoteResourceItemRequestBuilderGetQueryParameters $queryParameters = null;
+    public OnenoteResourceItemRequestBuilderGetQueryParameters $queryParameters;
     
+    /**
+     * Instantiates a new OnenoteResourceItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return OnenoteResourceItemRequestBuilderGetQueryParameters
+    */
+    public static function addQueryParameters(?array $expand = null, ?array $select = null): OnenoteResourceItemRequestBuilderGetQueryParameters {
+        return new OnenoteResourceItemRequestBuilderGetQueryParameters($expand, $select);
+    }
+
+    /**
+     * Instantiates a new OnenoteResourceItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param OnenoteResourceItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?OnenoteResourceItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

@@ -20,8 +20,30 @@ class WorkbookOperationItemRequestBuilderGetRequestConfiguration
     public ?array $options = null;
     
     /**
-     * @var WorkbookOperationItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+     * @var WorkbookOperationItemRequestBuilderGetQueryParameters $queryParameters Request query parameters
     */
-    public ?WorkbookOperationItemRequestBuilderGetQueryParameters $queryParameters = null;
+    public WorkbookOperationItemRequestBuilderGetQueryParameters $queryParameters;
     
+    /**
+     * Instantiates a new WorkbookOperationItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return WorkbookOperationItemRequestBuilderGetQueryParameters
+    */
+    public static function addQueryParameters(?array $expand = null, ?array $select = null): WorkbookOperationItemRequestBuilderGetQueryParameters {
+        return new WorkbookOperationItemRequestBuilderGetQueryParameters($expand, $select);
+    }
+
+    /**
+     * Instantiates a new WorkbookOperationItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param WorkbookOperationItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?WorkbookOperationItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

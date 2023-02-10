@@ -20,8 +20,30 @@ class SetRequestBuilderGetRequestConfiguration
     public ?array $options = null;
     
     /**
-     * @var SetRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+     * @var SetRequestBuilderGetQueryParameters $queryParameters Request query parameters
     */
-    public ?SetRequestBuilderGetQueryParameters $queryParameters = null;
+    public SetRequestBuilderGetQueryParameters $queryParameters;
     
+    /**
+     * Instantiates a new setRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return SetRequestBuilderGetQueryParameters
+    */
+    public static function addQueryParameters(?array $expand = null, ?array $select = null): SetRequestBuilderGetQueryParameters {
+        return new SetRequestBuilderGetQueryParameters($expand, $select);
+    }
+
+    /**
+     * Instantiates a new setRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param SetRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?SetRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

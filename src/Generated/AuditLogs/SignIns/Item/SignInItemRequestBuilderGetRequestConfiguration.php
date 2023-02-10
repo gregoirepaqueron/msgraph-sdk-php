@@ -20,8 +20,30 @@ class SignInItemRequestBuilderGetRequestConfiguration
     public ?array $options = null;
     
     /**
-     * @var SignInItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+     * @var SignInItemRequestBuilderGetQueryParameters $queryParameters Request query parameters
     */
-    public ?SignInItemRequestBuilderGetQueryParameters $queryParameters = null;
+    public SignInItemRequestBuilderGetQueryParameters $queryParameters;
     
+    /**
+     * Instantiates a new SignInItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return SignInItemRequestBuilderGetQueryParameters
+    */
+    public static function addQueryParameters(?array $expand = null, ?array $select = null): SignInItemRequestBuilderGetQueryParameters {
+        return new SignInItemRequestBuilderGetQueryParameters($expand, $select);
+    }
+
+    /**
+     * Instantiates a new SignInItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param SignInItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?SignInItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

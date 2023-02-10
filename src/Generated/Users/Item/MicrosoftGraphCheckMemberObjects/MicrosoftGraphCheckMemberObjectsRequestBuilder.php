@@ -54,14 +54,14 @@ class MicrosoftGraphCheckMemberObjectsRequestBuilder
      * @param MicrosoftGraphCheckMemberObjectsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
-    public function post(CheckMemberObjectsPostRequestBody $body, ?MicrosoftGraphCheckMemberObjectsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(CheckMemberObjectsPostRequestBody $body, ?MicrosoftGraphCheckMemberObjectsRequestBuilderPostRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [CheckMemberObjectsResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Promise::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }

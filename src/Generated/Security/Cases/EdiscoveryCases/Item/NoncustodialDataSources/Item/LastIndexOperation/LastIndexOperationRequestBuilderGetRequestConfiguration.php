@@ -20,8 +20,30 @@ class LastIndexOperationRequestBuilderGetRequestConfiguration
     public ?array $options = null;
     
     /**
-     * @var LastIndexOperationRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+     * @var LastIndexOperationRequestBuilderGetQueryParameters $queryParameters Request query parameters
     */
-    public ?LastIndexOperationRequestBuilderGetQueryParameters $queryParameters = null;
+    public LastIndexOperationRequestBuilderGetQueryParameters $queryParameters;
     
+    /**
+     * Instantiates a new lastIndexOperationRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return LastIndexOperationRequestBuilderGetQueryParameters
+    */
+    public static function addQueryParameters(?array $expand = null, ?array $select = null): LastIndexOperationRequestBuilderGetQueryParameters {
+        return new LastIndexOperationRequestBuilderGetQueryParameters($expand, $select);
+    }
+
+    /**
+     * Instantiates a new lastIndexOperationRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param LastIndexOperationRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?LastIndexOperationRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Generated\Models\OrganizationalBranding;
+use Microsoft\Graph\Generated\Models\Promise;
 use Microsoft\Graph\Generated\Organization\Item\Branding\BackgroundImage\BackgroundImageRequestBuilder;
 use Microsoft\Graph\Generated\Organization\Item\Branding\BannerLogo\BannerLogoRequestBuilder;
 use Microsoft\Graph\Generated\Organization\Item\Branding\Localizations\Item\OrganizationalBrandingLocalizationItemRequestBuilder;
@@ -88,14 +89,14 @@ class BrandingRequestBuilder
      * @return Promise
      * @link https://docs.microsoft.com/graph/api/organizationalbranding-delete?view=graph-rest-1.0 Find more info here
     */
-    public function delete(?BrandingRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): Promise {
+    public function delete(?BrandingRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toDeleteRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, 'Promise', $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -107,14 +108,14 @@ class BrandingRequestBuilder
      * @return Promise
      * @link https://docs.microsoft.com/graph/api/organizationalbranding-get?view=graph-rest-1.0 Find more info here
     */
-    public function get(?BrandingRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?BrandingRequestBuilderGetRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [OrganizationalBranding::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Promise::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -133,19 +134,19 @@ class BrandingRequestBuilder
 
     /**
      * Update the properties of the default branding object specified by the organizationalBranding resource.
-     * @param OrganizationalBranding $body The request body
+     * @param \Microsoft\Graph\Generated\Models\OrganizationalBranding $body The request body
      * @param BrandingRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://docs.microsoft.com/graph/api/organizationalbranding-update?view=graph-rest-1.0 Find more info here
     */
-    public function patch(OrganizationalBranding $body, ?BrandingRequestBuilderPatchRequestConfiguration $requestConfiguration = null): Promise {
+    public function patch(\Microsoft\Graph\Generated\Models\OrganizationalBranding $body, ?BrandingRequestBuilderPatchRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toPatchRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [OrganizationalBranding::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Promise::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -199,11 +200,11 @@ class BrandingRequestBuilder
 
     /**
      * Update the properties of the default branding object specified by the organizationalBranding resource.
-     * @param OrganizationalBranding $body The request body
+     * @param \Microsoft\Graph\Generated\Models\OrganizationalBranding $body The request body
      * @param BrandingRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPatchRequestInformation(OrganizationalBranding $body, ?BrandingRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPatchRequestInformation(\Microsoft\Graph\Generated\Models\OrganizationalBranding $body, ?BrandingRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

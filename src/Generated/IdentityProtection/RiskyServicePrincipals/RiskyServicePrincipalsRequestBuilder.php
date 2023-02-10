@@ -9,8 +9,8 @@ use Microsoft\Graph\Generated\IdentityProtection\RiskyServicePrincipals\Count\Co
 use Microsoft\Graph\Generated\IdentityProtection\RiskyServicePrincipals\MicrosoftGraphConfirmCompromised\MicrosoftGraphConfirmCompromisedRequestBuilder;
 use Microsoft\Graph\Generated\IdentityProtection\RiskyServicePrincipals\MicrosoftGraphDismiss\MicrosoftGraphDismissRequestBuilder;
 use Microsoft\Graph\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Generated\Models\Promise;
 use Microsoft\Graph\Generated\Models\RiskyServicePrincipal;
-use Microsoft\Graph\Generated\Models\RiskyServicePrincipalCollectionResponse;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -80,14 +80,14 @@ class RiskyServicePrincipalsRequestBuilder
      * @return Promise
      * @link https://docs.microsoft.com/graph/api/identityprotectionroot-list-riskyserviceprincipals?view=graph-rest-1.0 Find more info here
     */
-    public function get(?RiskyServicePrincipalsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?RiskyServicePrincipalsRequestBuilderGetRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [RiskyServicePrincipalCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Promise::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -95,18 +95,18 @@ class RiskyServicePrincipalsRequestBuilder
 
     /**
      * Create new navigation property to riskyServicePrincipals for identityProtection
-     * @param RiskyServicePrincipal $body The request body
+     * @param \Microsoft\Graph\Generated\Models\RiskyServicePrincipal $body The request body
      * @param RiskyServicePrincipalsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
-    public function post(RiskyServicePrincipal $body, ?RiskyServicePrincipalsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(\Microsoft\Graph\Generated\Models\RiskyServicePrincipal $body, ?RiskyServicePrincipalsRequestBuilderPostRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [RiskyServicePrincipal::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Promise::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -139,11 +139,11 @@ class RiskyServicePrincipalsRequestBuilder
 
     /**
      * Create new navigation property to riskyServicePrincipals for identityProtection
-     * @param RiskyServicePrincipal $body The request body
+     * @param \Microsoft\Graph\Generated\Models\RiskyServicePrincipal $body The request body
      * @param RiskyServicePrincipalsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(RiskyServicePrincipal $body, ?RiskyServicePrincipalsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(\Microsoft\Graph\Generated\Models\RiskyServicePrincipal $body, ?RiskyServicePrincipalsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

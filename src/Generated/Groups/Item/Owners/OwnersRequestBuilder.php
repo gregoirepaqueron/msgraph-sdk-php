@@ -13,8 +13,8 @@ use Microsoft\Graph\Generated\Groups\Item\Owners\MicrosoftGraphOrgContact\Micros
 use Microsoft\Graph\Generated\Groups\Item\Owners\MicrosoftGraphServicePrincipal\MicrosoftGraphServicePrincipalRequestBuilder;
 use Microsoft\Graph\Generated\Groups\Item\Owners\MicrosoftGraphUser\MicrosoftGraphUserRequestBuilder;
 use Microsoft\Graph\Generated\Groups\Item\Owners\Ref\RefRequestBuilder;
-use Microsoft\Graph\Generated\Models\DirectoryObjectCollectionResponse;
 use Microsoft\Graph\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Generated\Models\Promise;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -119,14 +119,14 @@ class OwnersRequestBuilder
      * @return Promise
      * @link https://docs.microsoft.com/graph/api/group-list-owners?view=graph-rest-1.0 Find more info here
     */
-    public function get(?OwnersRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?OwnersRequestBuilderGetRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [DirectoryObjectCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Promise::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }

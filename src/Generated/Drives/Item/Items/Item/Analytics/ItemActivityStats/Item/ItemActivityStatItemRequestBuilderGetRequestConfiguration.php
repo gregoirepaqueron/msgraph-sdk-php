@@ -20,8 +20,30 @@ class ItemActivityStatItemRequestBuilderGetRequestConfiguration
     public ?array $options = null;
     
     /**
-     * @var ItemActivityStatItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+     * @var ItemActivityStatItemRequestBuilderGetQueryParameters $queryParameters Request query parameters
     */
-    public ?ItemActivityStatItemRequestBuilderGetQueryParameters $queryParameters = null;
+    public ItemActivityStatItemRequestBuilderGetQueryParameters $queryParameters;
     
+    /**
+     * Instantiates a new ItemActivityStatItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return ItemActivityStatItemRequestBuilderGetQueryParameters
+    */
+    public static function addQueryParameters(?array $expand = null, ?array $select = null): ItemActivityStatItemRequestBuilderGetQueryParameters {
+        return new ItemActivityStatItemRequestBuilderGetQueryParameters($expand, $select);
+    }
+
+    /**
+     * Instantiates a new ItemActivityStatItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param ItemActivityStatItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?ItemActivityStatItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

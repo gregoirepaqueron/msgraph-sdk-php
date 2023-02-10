@@ -12,8 +12,8 @@ use Microsoft\Graph\Generated\Groups\Item\MembersWithLicenseErrors\MicrosoftGrap
 use Microsoft\Graph\Generated\Groups\Item\MembersWithLicenseErrors\MicrosoftGraphOrgContact\MicrosoftGraphOrgContactRequestBuilder;
 use Microsoft\Graph\Generated\Groups\Item\MembersWithLicenseErrors\MicrosoftGraphServicePrincipal\MicrosoftGraphServicePrincipalRequestBuilder;
 use Microsoft\Graph\Generated\Groups\Item\MembersWithLicenseErrors\MicrosoftGraphUser\MicrosoftGraphUserRequestBuilder;
-use Microsoft\Graph\Generated\Models\DirectoryObjectCollectionResponse;
 use Microsoft\Graph\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Generated\Models\Promise;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -110,14 +110,14 @@ class MembersWithLicenseErrorsRequestBuilder
      * @param MembersWithLicenseErrorsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
     */
-    public function get(?MembersWithLicenseErrorsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?MembersWithLicenseErrorsRequestBuilderGetRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [DirectoryObjectCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Promise::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }

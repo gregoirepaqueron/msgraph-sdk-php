@@ -9,8 +9,8 @@ use Microsoft\Graph\Generated\Identity\B2xUserFlows\Item\UserAttributeAssignment
 use Microsoft\Graph\Generated\Identity\B2xUserFlows\Item\UserAttributeAssignments\MicrosoftGraphGetOrder\MicrosoftGraphGetOrderRequestBuilder;
 use Microsoft\Graph\Generated\Identity\B2xUserFlows\Item\UserAttributeAssignments\MicrosoftGraphSetOrder\MicrosoftGraphSetOrderRequestBuilder;
 use Microsoft\Graph\Generated\Models\IdentityUserFlowAttributeAssignment;
-use Microsoft\Graph\Generated\Models\IdentityUserFlowAttributeAssignmentCollectionResponse;
 use Microsoft\Graph\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Generated\Models\Promise;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -80,14 +80,14 @@ class UserAttributeAssignmentsRequestBuilder
      * @return Promise
      * @link https://docs.microsoft.com/graph/api/b2xidentityuserflow-list-userattributeassignments?view=graph-rest-1.0 Find more info here
     */
-    public function get(?UserAttributeAssignmentsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?UserAttributeAssignmentsRequestBuilderGetRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [IdentityUserFlowAttributeAssignmentCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Promise::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -95,19 +95,19 @@ class UserAttributeAssignmentsRequestBuilder
 
     /**
      * Create a new identityUserFlowAttributeAssignment object in a b2xIdentityUserFlow.
-     * @param IdentityUserFlowAttributeAssignment $body The request body
+     * @param \Microsoft\Graph\Generated\Models\IdentityUserFlowAttributeAssignment $body The request body
      * @param UserAttributeAssignmentsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://docs.microsoft.com/graph/api/b2xidentityuserflow-post-userattributeassignments?view=graph-rest-1.0 Find more info here
     */
-    public function post(IdentityUserFlowAttributeAssignment $body, ?UserAttributeAssignmentsRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(\Microsoft\Graph\Generated\Models\IdentityUserFlowAttributeAssignment $body, ?UserAttributeAssignmentsRequestBuilderPostRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [IdentityUserFlowAttributeAssignment::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Promise::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -140,11 +140,11 @@ class UserAttributeAssignmentsRequestBuilder
 
     /**
      * Create a new identityUserFlowAttributeAssignment object in a b2xIdentityUserFlow.
-     * @param IdentityUserFlowAttributeAssignment $body The request body
+     * @param \Microsoft\Graph\Generated\Models\IdentityUserFlowAttributeAssignment $body The request body
      * @param UserAttributeAssignmentsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(IdentityUserFlowAttributeAssignment $body, ?UserAttributeAssignmentsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(\Microsoft\Graph\Generated\Models\IdentityUserFlowAttributeAssignment $body, ?UserAttributeAssignmentsRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

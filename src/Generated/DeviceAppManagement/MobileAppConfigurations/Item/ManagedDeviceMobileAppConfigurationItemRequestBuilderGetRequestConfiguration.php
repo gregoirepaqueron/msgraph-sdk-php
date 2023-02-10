@@ -20,8 +20,30 @@ class ManagedDeviceMobileAppConfigurationItemRequestBuilderGetRequestConfigurati
     public ?array $options = null;
     
     /**
-     * @var ManagedDeviceMobileAppConfigurationItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+     * @var ManagedDeviceMobileAppConfigurationItemRequestBuilderGetQueryParameters $queryParameters Request query parameters
     */
-    public ?ManagedDeviceMobileAppConfigurationItemRequestBuilderGetQueryParameters $queryParameters = null;
+    public ManagedDeviceMobileAppConfigurationItemRequestBuilderGetQueryParameters $queryParameters;
     
+    /**
+     * Instantiates a new ManagedDeviceMobileAppConfigurationItemRequestBuilderGetQueryParameters.
+     * @param array<string>|null $expand Expand related entities
+     * @param array<string>|null $select Select properties to be returned
+     * @return ManagedDeviceMobileAppConfigurationItemRequestBuilderGetQueryParameters
+    */
+    public static function addQueryParameters(?array $expand = null, ?array $select = null): ManagedDeviceMobileAppConfigurationItemRequestBuilderGetQueryParameters {
+        return new ManagedDeviceMobileAppConfigurationItemRequestBuilderGetQueryParameters($expand, $select);
+    }
+
+    /**
+     * Instantiates a new ManagedDeviceMobileAppConfigurationItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param ManagedDeviceMobileAppConfigurationItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?ManagedDeviceMobileAppConfigurationItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

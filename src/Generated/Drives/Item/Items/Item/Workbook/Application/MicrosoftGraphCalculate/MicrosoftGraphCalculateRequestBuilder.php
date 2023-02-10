@@ -55,14 +55,14 @@ class MicrosoftGraphCalculateRequestBuilder
      * @return Promise
      * @link https://docs.microsoft.com/graph/api/workbookapplication-calculate?view=graph-rest-1.0 Find more info here
     */
-    public function post(CalculatePostRequestBody $body, ?MicrosoftGraphCalculateRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(CalculatePostRequestBody $body, ?MicrosoftGraphCalculateRequestBuilderPostRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, 'Promise', $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }

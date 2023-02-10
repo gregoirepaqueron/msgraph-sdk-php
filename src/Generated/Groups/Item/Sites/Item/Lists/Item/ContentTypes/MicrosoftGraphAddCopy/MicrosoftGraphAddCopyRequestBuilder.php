@@ -5,8 +5,8 @@ namespace Microsoft\Graph\Generated\Groups\Item\Sites\Item\Lists\Item\ContentTyp
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
-use Microsoft\Graph\Generated\Models\ContentType;
 use Microsoft\Graph\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Generated\Models\Promise;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -56,14 +56,14 @@ class MicrosoftGraphAddCopyRequestBuilder
      * @return Promise
      * @link https://docs.microsoft.com/graph/api/contenttype-addcopy?view=graph-rest-1.0 Find more info here
     */
-    public function post(AddCopyPostRequestBody $body, ?MicrosoftGraphAddCopyRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(AddCopyPostRequestBody $body, ?MicrosoftGraphAddCopyRequestBuilderPostRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [ContentType::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Promise::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }

@@ -10,8 +10,8 @@ use Microsoft\Graph\Generated\Groups\Item\Sites\Item\ContentTypes\MicrosoftGraph
 use Microsoft\Graph\Generated\Groups\Item\Sites\Item\ContentTypes\MicrosoftGraphAddCopyFromContentTypeHub\MicrosoftGraphAddCopyFromContentTypeHubRequestBuilder;
 use Microsoft\Graph\Generated\Groups\Item\Sites\Item\ContentTypes\MicrosoftGraphGetCompatibleHubContentTypes\MicrosoftGraphGetCompatibleHubContentTypesRequestBuilder;
 use Microsoft\Graph\Generated\Models\ContentType;
-use Microsoft\Graph\Generated\Models\ContentTypeCollectionResponse;
 use Microsoft\Graph\Generated\Models\ODataErrors\ODataError;
+use Microsoft\Graph\Generated\Models\Promise;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -88,14 +88,14 @@ class ContentTypesRequestBuilder
      * @return Promise
      * @link https://docs.microsoft.com/graph/api/site-list-contenttypes?view=graph-rest-1.0 Find more info here
     */
-    public function get(?ContentTypesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
+    public function get(?ContentTypesRequestBuilderGetRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [ContentTypeCollectionResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Promise::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -103,19 +103,19 @@ class ContentTypesRequestBuilder
 
     /**
      * Create a new [contentType][] in a [site][].
-     * @param ContentType $body The request body
+     * @param \Microsoft\Graph\Generated\Models\ContentType $body The request body
      * @param ContentTypesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise
      * @link https://docs.microsoft.com/graph/api/site-post-contenttypes?view=graph-rest-1.0 Find more info here
     */
-    public function post(ContentType $body, ?ContentTypesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(\Microsoft\Graph\Generated\Models\ContentType $body, ?ContentTypesRequestBuilderPostRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [ContentType::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Promise::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -148,11 +148,11 @@ class ContentTypesRequestBuilder
 
     /**
      * Create a new [contentType][] in a [site][].
-     * @param ContentType $body The request body
+     * @param \Microsoft\Graph\Generated\Models\ContentType $body The request body
      * @param ContentTypesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function toPostRequestInformation(ContentType $body, ?ContentTypesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function toPostRequestInformation(\Microsoft\Graph\Generated\Models\ContentType $body, ?ContentTypesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;

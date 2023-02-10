@@ -55,14 +55,14 @@ class MicrosoftGraphMarkReadRequestBuilder
      * @return Promise
      * @link https://docs.microsoft.com/graph/api/serviceupdatemessage-markread?view=graph-rest-1.0 Find more info here
     */
-    public function post(MarkReadPostRequestBody $body, ?MicrosoftGraphMarkReadRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
+    public function post(MarkReadPostRequestBody $body, ?MicrosoftGraphMarkReadRequestBuilderPostRequestConfiguration $requestConfiguration = null): ?Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
                     '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
                     '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, [MarkReadResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Promise::class, 'createFromDiscriminatorValue'], $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
