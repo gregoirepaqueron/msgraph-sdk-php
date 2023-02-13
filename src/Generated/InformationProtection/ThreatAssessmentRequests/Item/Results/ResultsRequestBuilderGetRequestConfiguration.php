@@ -24,4 +24,16 @@ class ResultsRequestBuilderGetRequestConfiguration
     */
     public ?ResultsRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new resultsRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param ResultsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?ResultsRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

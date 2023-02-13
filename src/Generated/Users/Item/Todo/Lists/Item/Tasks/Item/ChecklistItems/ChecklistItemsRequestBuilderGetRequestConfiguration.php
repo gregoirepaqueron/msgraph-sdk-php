@@ -24,4 +24,16 @@ class ChecklistItemsRequestBuilderGetRequestConfiguration
     */
     public ?ChecklistItemsRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new checklistItemsRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param ChecklistItemsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?ChecklistItemsRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

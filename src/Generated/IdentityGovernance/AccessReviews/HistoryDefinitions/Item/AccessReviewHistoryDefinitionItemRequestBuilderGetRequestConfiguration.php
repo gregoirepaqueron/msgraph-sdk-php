@@ -24,4 +24,16 @@ class AccessReviewHistoryDefinitionItemRequestBuilderGetRequestConfiguration
     */
     public ?AccessReviewHistoryDefinitionItemRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new AccessReviewHistoryDefinitionItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param AccessReviewHistoryDefinitionItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?AccessReviewHistoryDefinitionItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

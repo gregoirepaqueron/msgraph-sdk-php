@@ -24,4 +24,16 @@ class StaffMembersRequestBuilderGetRequestConfiguration
     */
     public ?StaffMembersRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new staffMembersRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param StaffMembersRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?StaffMembersRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

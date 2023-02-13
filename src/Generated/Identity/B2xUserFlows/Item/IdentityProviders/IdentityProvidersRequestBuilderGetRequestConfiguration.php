@@ -24,4 +24,16 @@ class IdentityProvidersRequestBuilderGetRequestConfiguration
     */
     public ?IdentityProvidersRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new identityProvidersRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param IdentityProvidersRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?IdentityProvidersRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

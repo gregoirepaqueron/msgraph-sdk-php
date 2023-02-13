@@ -24,4 +24,16 @@ class ExternalRequestBuilderGetRequestConfiguration
     */
     public ?ExternalRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new externalRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param ExternalRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?ExternalRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

@@ -24,4 +24,16 @@ class AcceptanceStatusesRequestBuilderGetRequestConfiguration
     */
     public ?AcceptanceStatusesRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new acceptanceStatusesRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param AcceptanceStatusesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?AcceptanceStatusesRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

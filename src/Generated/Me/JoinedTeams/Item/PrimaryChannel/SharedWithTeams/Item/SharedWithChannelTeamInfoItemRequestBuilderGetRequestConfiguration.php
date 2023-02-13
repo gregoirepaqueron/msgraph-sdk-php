@@ -24,4 +24,16 @@ class SharedWithChannelTeamInfoItemRequestBuilderGetRequestConfiguration
     */
     public ?SharedWithChannelTeamInfoItemRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new SharedWithChannelTeamInfoItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param SharedWithChannelTeamInfoItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?SharedWithChannelTeamInfoItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

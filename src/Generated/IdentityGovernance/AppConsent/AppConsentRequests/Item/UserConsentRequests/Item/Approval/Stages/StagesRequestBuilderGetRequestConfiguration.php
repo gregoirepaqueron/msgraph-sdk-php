@@ -24,4 +24,16 @@ class StagesRequestBuilderGetRequestConfiguration
     */
     public ?StagesRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new stagesRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param StagesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?StagesRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

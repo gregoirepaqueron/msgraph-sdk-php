@@ -24,4 +24,16 @@ class ShiftPreferencesRequestBuilderGetRequestConfiguration
     */
     public ?ShiftPreferencesRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new shiftPreferencesRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param ShiftPreferencesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?ShiftPreferencesRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

@@ -24,4 +24,16 @@ class DeviceCompliancePolicySettingStateSummariesRequestBuilderGetRequestConfigu
     */
     public ?DeviceCompliancePolicySettingStateSummariesRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new deviceCompliancePolicySettingStateSummariesRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param DeviceCompliancePolicySettingStateSummariesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?DeviceCompliancePolicySettingStateSummariesRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

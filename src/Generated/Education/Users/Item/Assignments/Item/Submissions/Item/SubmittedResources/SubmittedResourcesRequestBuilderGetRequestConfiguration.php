@@ -24,4 +24,16 @@ class SubmittedResourcesRequestBuilderGetRequestConfiguration
     */
     public ?SubmittedResourcesRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new submittedResourcesRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param SubmittedResourcesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?SubmittedResourcesRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

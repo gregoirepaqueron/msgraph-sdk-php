@@ -24,4 +24,16 @@ class IntendedPoliciesRequestBuilderGetRequestConfiguration
     */
     public ?IntendedPoliciesRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new intendedPoliciesRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param IntendedPoliciesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?IntendedPoliciesRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

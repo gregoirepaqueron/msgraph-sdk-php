@@ -24,4 +24,16 @@ class PlacesRequestBuilderGetRequestConfiguration
     */
     public ?PlacesRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new placesRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param PlacesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?PlacesRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

@@ -24,4 +24,16 @@ class EdiscoveryCaseItemRequestBuilderGetRequestConfiguration
     */
     public ?EdiscoveryCaseItemRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new EdiscoveryCaseItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param EdiscoveryCaseItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?EdiscoveryCaseItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

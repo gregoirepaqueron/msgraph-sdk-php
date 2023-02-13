@@ -24,4 +24,16 @@ class AgreementFileLocalizationItemRequestBuilderGetRequestConfiguration
     */
     public ?AgreementFileLocalizationItemRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new AgreementFileLocalizationItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param AgreementFileLocalizationItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?AgreementFileLocalizationItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

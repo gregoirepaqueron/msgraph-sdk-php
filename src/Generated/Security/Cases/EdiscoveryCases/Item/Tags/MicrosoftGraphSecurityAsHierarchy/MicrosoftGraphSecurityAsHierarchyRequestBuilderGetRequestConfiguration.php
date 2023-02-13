@@ -24,4 +24,16 @@ class MicrosoftGraphSecurityAsHierarchyRequestBuilderGetRequestConfiguration
     */
     public ?MicrosoftGraphSecurityAsHierarchyRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new microsoftGraphSecurityAsHierarchyRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param MicrosoftGraphSecurityAsHierarchyRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?MicrosoftGraphSecurityAsHierarchyRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

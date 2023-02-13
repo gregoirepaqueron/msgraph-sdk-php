@@ -24,4 +24,16 @@ class BookingCustomQuestionItemRequestBuilderGetRequestConfiguration
     */
     public ?BookingCustomQuestionItemRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new BookingCustomQuestionItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param BookingCustomQuestionItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?BookingCustomQuestionItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

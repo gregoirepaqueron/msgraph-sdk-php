@@ -24,4 +24,16 @@ class ServicePrincipalsRequestBuilderGetRequestConfiguration
     */
     public ?ServicePrincipalsRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new servicePrincipalsRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param ServicePrincipalsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?ServicePrincipalsRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

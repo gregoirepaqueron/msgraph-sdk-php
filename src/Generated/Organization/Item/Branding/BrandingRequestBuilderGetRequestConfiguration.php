@@ -24,4 +24,16 @@ class BrandingRequestBuilderGetRequestConfiguration
     */
     public ?BrandingRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new brandingRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param BrandingRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?BrandingRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

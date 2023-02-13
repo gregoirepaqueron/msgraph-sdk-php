@@ -24,4 +24,16 @@ class ColumnDefinitionItemRequestBuilderGetRequestConfiguration
     */
     public ?ColumnDefinitionItemRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new ColumnDefinitionItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param ColumnDefinitionItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?ColumnDefinitionItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

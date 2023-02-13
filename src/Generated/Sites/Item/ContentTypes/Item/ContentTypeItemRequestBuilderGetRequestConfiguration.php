@@ -24,4 +24,16 @@ class ContentTypeItemRequestBuilderGetRequestConfiguration
     */
     public ?ContentTypeItemRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new ContentTypeItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param ContentTypeItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?ContentTypeItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

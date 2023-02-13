@@ -24,4 +24,16 @@ class DataPolicyOperationsRequestBuilderGetRequestConfiguration
     */
     public ?DataPolicyOperationsRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new dataPolicyOperationsRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param DataPolicyOperationsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?DataPolicyOperationsRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

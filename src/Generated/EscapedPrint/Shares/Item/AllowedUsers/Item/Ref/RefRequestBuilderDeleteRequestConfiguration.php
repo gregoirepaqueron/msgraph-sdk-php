@@ -24,4 +24,16 @@ class RefRequestBuilderDeleteRequestConfiguration
     */
     public ?RefRequestBuilderDeleteQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new RefRequestBuilderDeleteRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param RefRequestBuilderDeleteQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?RefRequestBuilderDeleteQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

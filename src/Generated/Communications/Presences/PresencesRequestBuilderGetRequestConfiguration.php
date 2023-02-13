@@ -24,4 +24,16 @@ class PresencesRequestBuilderGetRequestConfiguration
     */
     public ?PresencesRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new presencesRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param PresencesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?PresencesRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

@@ -24,4 +24,16 @@ class UserRequestBuilderGetRequestConfiguration
     */
     public ?UserRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new userRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param UserRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?UserRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

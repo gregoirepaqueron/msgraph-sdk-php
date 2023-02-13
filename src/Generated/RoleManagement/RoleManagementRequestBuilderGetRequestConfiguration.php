@@ -24,4 +24,16 @@ class RoleManagementRequestBuilderGetRequestConfiguration
     */
     public ?RoleManagementRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new roleManagementRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param RoleManagementRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?RoleManagementRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

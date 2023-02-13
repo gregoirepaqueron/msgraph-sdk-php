@@ -24,4 +24,16 @@ class TodoTaskItemRequestBuilderGetRequestConfiguration
     */
     public ?TodoTaskItemRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new TodoTaskItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param TodoTaskItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?TodoTaskItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

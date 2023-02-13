@@ -24,4 +24,16 @@ class SolutionsRequestBuilderGetRequestConfiguration
     */
     public ?SolutionsRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new solutionsRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param SolutionsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?SolutionsRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

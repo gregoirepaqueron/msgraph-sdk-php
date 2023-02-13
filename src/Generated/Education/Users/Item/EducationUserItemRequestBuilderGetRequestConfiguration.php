@@ -24,4 +24,16 @@ class EducationUserItemRequestBuilderGetRequestConfiguration
     */
     public ?EducationUserItemRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new EducationUserItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param EducationUserItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?EducationUserItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

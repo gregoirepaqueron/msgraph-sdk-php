@@ -24,4 +24,16 @@ class DeviceStatusesRequestBuilderGetRequestConfiguration
     */
     public ?DeviceStatusesRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new deviceStatusesRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param DeviceStatusesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?DeviceStatusesRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

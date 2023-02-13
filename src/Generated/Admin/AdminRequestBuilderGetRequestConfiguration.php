@@ -24,4 +24,16 @@ class AdminRequestBuilderGetRequestConfiguration
     */
     public ?AdminRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new adminRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param AdminRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?AdminRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

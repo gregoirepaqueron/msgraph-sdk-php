@@ -24,4 +24,16 @@ class SwapShiftsChangeRequestsRequestBuilderGetRequestConfiguration
     */
     public ?SwapShiftsChangeRequestsRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new swapShiftsChangeRequestsRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param SwapShiftsChangeRequestsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?SwapShiftsChangeRequestsRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

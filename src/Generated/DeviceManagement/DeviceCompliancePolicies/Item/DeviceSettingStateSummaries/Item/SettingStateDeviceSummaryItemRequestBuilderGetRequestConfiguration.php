@@ -24,4 +24,16 @@ class SettingStateDeviceSummaryItemRequestBuilderGetRequestConfiguration
     */
     public ?SettingStateDeviceSummaryItemRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new SettingStateDeviceSummaryItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param SettingStateDeviceSummaryItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?SettingStateDeviceSummaryItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

@@ -24,4 +24,16 @@ class ManagedAppStatusItemRequestBuilderGetRequestConfiguration
     */
     public ?ManagedAppStatusItemRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new ManagedAppStatusItemRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param ManagedAppStatusItemRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?ManagedAppStatusItemRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }

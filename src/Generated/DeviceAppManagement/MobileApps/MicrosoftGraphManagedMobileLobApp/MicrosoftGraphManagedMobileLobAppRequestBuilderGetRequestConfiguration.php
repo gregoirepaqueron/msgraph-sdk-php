@@ -24,4 +24,16 @@ class MicrosoftGraphManagedMobileLobAppRequestBuilderGetRequestConfiguration
     */
     public ?MicrosoftGraphManagedMobileLobAppRequestBuilderGetQueryParameters $queryParameters = null;
     
+    /**
+     * Instantiates a new microsoftGraphManagedMobileLobAppRequestBuilderGetRequestConfiguration and sets the default values.
+     * @param array<array>|null $headers Request headers
+     * @param array<array>|null $options Request options
+     * @param MicrosoftGraphManagedMobileLobAppRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public function __construct(?array $headers = null, ?array $options = null, ?MicrosoftGraphManagedMobileLobAppRequestBuilderGetQueryParameters $queryParameters = null) {
+        $this->headers = $headers;
+        $this->options = $options;
+        $this->queryParameters = $queryParameters;
+    }
+
 }
