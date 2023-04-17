@@ -1,4 +1,6 @@
 <?php
+
+use Microsoft\Graph\Http\GraphResponse;
 use PHPUnit\Framework\TestCase;
 use Microsoft\Graph\Core\GraphConstants;
 use Microsoft\Graph\Graph;
@@ -51,7 +53,7 @@ class GraphTest extends TestCase
     {
         $graph = new Graph();
         $graph->setAccessToken('abc')
-              ->setApiVersion('beta');
+            ->setApiVersion('beta');
         $request = $graph->createRequest("GET", "/me");
 
         $this->assertEquals('beta', $request->getApiVersion());
@@ -71,5 +73,22 @@ class GraphTest extends TestCase
 
         $this->assertEquals(GraphConstants::API_VERSION, $request->getApiVersion());
         $this->assertEquals('beta', $request2->getApiVersion());
+    }
+
+    public function testGuzzleClient()
+    {
+        $guzzleClient = $this->createMock(\GuzzleHttp\Client::class);
+        $guzzleClient
+            ->expects($this->once())
+            ->method('request')
+            ->withAnyParameters();
+
+        $graph = new Graph();
+        $graph->setAccessToken('access_token');
+        $graph->setGuzzleClient($guzzleClient);
+
+        $response = $graph->createRequest('POST', 'hello')->execute();
+
+        self::assertInstanceOf(GraphResponse::class, $response);
     }
 }

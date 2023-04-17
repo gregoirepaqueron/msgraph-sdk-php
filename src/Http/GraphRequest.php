@@ -114,6 +114,11 @@ class GraphRequest
     protected $http_errors;
 
     /**
+     * @var Client|null
+     */
+    private $guzzleClient;
+
+    /**
     * Constructs a new Graph Request object
     *
     * @param string $requestType  The HTTP method to use, e.g. "GET" or "POST"
@@ -123,9 +128,10 @@ class GraphRequest
     * @param string $apiVersion   The API version to use
     * @param string $proxyPort    The url where to proxy through
     * @param bool $proxyVerifySSL Whether the proxy requests should perform SSL verification
+    * @param Client|null $guzzleClient The url where to proxy through
     * @throws GraphException when no access token is provided
     */
-    public function __construct($requestType, $endpoint, $accessToken, $baseUrl, $apiVersion, $proxyPort = null, $proxyVerifySSL = false)
+    public function __construct($requestType, $endpoint, $accessToken, $baseUrl, $apiVersion, $proxyPort = null, $proxyVerifySSL = false, $guzzleClient = null)
     {
         $this->requestType = $requestType;
         $this->endpoint = $endpoint;
@@ -142,6 +148,7 @@ class GraphRequest
         $this->headers = $this->_getDefaultHeaders();
         $this->proxyPort = $proxyPort;
         $this->proxyVerifySSL = $proxyVerifySSL;
+        $this->guzzleClient = $guzzleClient;
     }
 
     /**
@@ -319,7 +326,7 @@ class GraphRequest
                 [
                     'body' => $this->requestBody,
                     'timeout' => $this->timeout
-                ]
+                ] + $this->getGuzzleSettings()
             );
         } catch(BadResponseException $e) {
             throw ExceptionWrapper::wrapGuzzleBadResponseException($e);
@@ -432,7 +439,7 @@ class GraphRequest
                     'body' => $this->requestBody,
                     'sink' => $file,
                     'timeout' => $this->timeout
-                ]
+                ] + $this->getGuzzleSettings()
             );
             if(is_resource($file)){
                 fclose($file);
@@ -485,7 +492,6 @@ class GraphRequest
     private function _getDefaultHeaders()
     {
         return [
-            'Host' => $this->baseUrl,
             'Content-Type' => 'application/json',
             'SdkVersion' => 'Graph-php-' . GraphConstants::SDK_VERSION,
             'Authorization' => 'Bearer ' . $this->accessToken
@@ -536,6 +542,15 @@ class GraphRequest
     */
     protected function createGuzzleClient()
     {
+        if (null !== $this->guzzleClient) {
+            return $this->guzzleClient;
+        }
+
+        return new Client($this->getGuzzleSettings());
+    }
+
+    protected function getGuzzleSettings(): array
+    {
         $clientSettings = [
             'base_uri' => $this->baseUrl,
             'http_errors' => $this->http_errors,
@@ -550,6 +565,7 @@ class GraphRequest
             // Enable HTTP/2 if curl lib exists and supports it
             $clientSettings['version'] = '2';
         }
-        return new Client($clientSettings);
+
+        return $clientSettings;
     }
 }
